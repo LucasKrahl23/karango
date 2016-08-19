@@ -1,0 +1,62 @@
+<%= form_for(abastecimento) do |f| %>
+  <% if abastecimento.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(abastecimento.errors.count, "error") %> prohibited this abastecimento from being saved:</h2>
+
+      <ul>
+      <% abastecimento.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :abastecimento_dt %>
+    <%= f.date_select :abastecimento_dt %>
+  </div>
+
+  <div class="field">
+    <%= f.label :odometro %>
+    <%= f.number_field :odometro %>
+  </div>
+
+  <div class="field">
+    <%= f.label :precolitro %>
+    <%= f.text_field :precolitro %>
+  </div>
+
+  <div class="field">
+    <%= f.label :precototal %>
+    <%= f.text_field :precototal %>
+  </div>
+
+  <div class="field">
+    <%= f.label :obs %>
+    <%= f.text_field :obs %>
+  </div>
+
+  <div class="field">
+    <%= f.label :veiculo_id %>
+    <%= f.text_field :veiculo_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :completou_flag %>
+    <%= f.text_field :completou_flag %>
+  </div>
+
+  <div class="field">
+    <%= f.label :combustivel_id %>
+    <%= f.text_field :combustivel_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :formaspagamento_id %>
+    <%= f.text_field :formaspagamento_id %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

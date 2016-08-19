@@ -1,0 +1,1 @@
+json.partial! "marcas/marcas", marcas: @marcas

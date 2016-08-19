@@ -1,0 +1,1 @@
+json.array! @tiposveiculos, partial: 'tiposveiculos/tiposveiculo', as: :tiposveiculo

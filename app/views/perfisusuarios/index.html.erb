@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Perfisusuarios</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Admin flag</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @perfisusuarios.each do |perfisusuario| %>
+      <tr>
+        <td><%= perfisusuario.nome %></td>
+        <td><%= perfisusuario.admin_flag %></td>
+        <td><%= link_to 'Show', perfisusuario %></td>
+        <td><%= link_to 'Edit', edit_perfisusuario_path(perfisusuario) %></td>
+        <td><%= link_to 'Destroy', perfisusuario, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Perfisusuario', new_perfisusuario_path %>

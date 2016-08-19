@@ -1,0 +1,22 @@
+<%= form_for(tiposveiculo) do |f| %>
+  <% if tiposveiculo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(tiposveiculo.errors.count, "error") %> prohibited this tiposveiculo from being saved:</h2>
+
+      <ul>
+      <% tiposveiculo.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :nome %>
+    <%= f.text_field :nome %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

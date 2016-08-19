@@ -1,0 +1,1 @@
+json.array! @impostos, partial: 'impostos/imposto', as: :imposto

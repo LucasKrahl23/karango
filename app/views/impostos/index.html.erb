@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Impostos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Descricao</th>
+      <th>Valor</th>
+      <th>Vencimento dt</th>
+      <th>Obs</th>
+      <th>Pago flag</th>
+      <th>Formaspagamento</th>
+      <th>Veiculo</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @impostos.each do |imposto| %>
+      <tr>
+        <td><%= imposto.descricao %></td>
+        <td><%= imposto.valor %></td>
+        <td><%= imposto.vencimento_dt %></td>
+        <td><%= imposto.obs %></td>
+        <td><%= imposto.pago_flag %></td>
+        <td><%= imposto.formaspagamento %></td>
+        <td><%= imposto.veiculo %></td>
+        <td><%= link_to 'Show', imposto %></td>
+        <td><%= link_to 'Edit', edit_imposto_path(imposto) %></td>
+        <td><%= link_to 'Destroy', imposto, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Imposto', new_imposto_path %>

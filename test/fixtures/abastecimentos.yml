@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  abastecimento_dt: 2016-08-18
+  odometro: 1
+  precolitro: 
+  precototal: 
+  obs: MyString
+  veiculo: one
+  completou_flag: MyString
+  combustivel: one
+  formaspagamento: one
+
+two:
+  abastecimento_dt: 2016-08-18
+  odometro: 1
+  precolitro: 
+  precototal: 
+  obs: MyString
+  veiculo: two
+  completou_flag: MyString
+  combustivel: two
+  formaspagamento: two

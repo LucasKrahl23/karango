@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Combustiveis</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @combustiveis.each do |combustivel| %>
+      <tr>
+        <td><%= combustivel.nome %></td>
+        <td><%= link_to 'Show', combustivel %></td>
+        <td><%= link_to 'Edit', edit_combustivel_path(combustivel) %></td>
+        <td><%= link_to 'Destroy', combustivel, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Combustivel', new_combustivel_path %>

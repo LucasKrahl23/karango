@@ -1,0 +1,2 @@
+class Marcas < ApplicationRecord
+end

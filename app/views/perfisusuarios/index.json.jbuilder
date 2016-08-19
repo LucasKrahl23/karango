@@ -1,0 +1,1 @@
+json.array! @perfisusuarios, partial: 'perfisusuarios/perfisusuario', as: :perfisusuario

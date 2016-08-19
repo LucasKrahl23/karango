@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nome: MyString
+  email: MyString
+  senha: MyString
+  cadastro_dt: 2016-08-18
+  ativo_flag: false
+  perfisusuario: one
+
+two:
+  nome: MyString
+  email: MyString
+  senha: MyString
+  cadastro_dt: 2016-08-18
+  ativo_flag: false
+  perfisusuario: two

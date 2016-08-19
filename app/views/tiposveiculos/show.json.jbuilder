@@ -1,0 +1,1 @@
+json.partial! "tiposveiculos/tiposveiculo", tiposveiculo: @tiposveiculo

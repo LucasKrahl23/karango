@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Abastecimentos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Abastecimento dt</th>
+      <th>Odometro</th>
+      <th>Precolitro</th>
+      <th>Precototal</th>
+      <th>Obs</th>
+      <th>Veiculo</th>
+      <th>Completou flag</th>
+      <th>Combustivel</th>
+      <th>Formaspagamento</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @abastecimentos.each do |abastecimento| %>
+      <tr>
+        <td><%= abastecimento.abastecimento_dt %></td>
+        <td><%= abastecimento.odometro %></td>
+        <td><%= abastecimento.precolitro %></td>
+        <td><%= abastecimento.precototal %></td>
+        <td><%= abastecimento.obs %></td>
+        <td><%= abastecimento.veiculo %></td>
+        <td><%= abastecimento.completou_flag %></td>
+        <td><%= abastecimento.combustivel %></td>
+        <td><%= abastecimento.formaspagamento %></td>
+        <td><%= link_to 'Show', abastecimento %></td>
+        <td><%= link_to 'Edit', edit_abastecimento_path(abastecimento) %></td>
+        <td><%= link_to 'Destroy', abastecimento, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Abastecimento', new_abastecimento_path %>

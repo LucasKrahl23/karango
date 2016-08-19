@@ -1,0 +1,2 @@
+json.extract! manutencao, :id, :descricao, :odometro, :manutencao_dt, :valor, :validade_dt, :kmvalidade, :obs, :formaspagamento_id, :veiculo_id, :created_at, :updated_at
+json.url manutencao_url(manutencao, format: :json)

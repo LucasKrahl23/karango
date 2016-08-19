@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nome:</strong>
+  <%= @perfisusuario.nome %>
+</p>
+
+<p>
+  <strong>Admin flag:</strong>
+  <%= @perfisusuario.admin_flag %>
+</p>
+
+<%= link_to 'Edit', edit_perfisusuario_path(@perfisusuario) %> |
+<%= link_to 'Back', perfisusuarios_path %>

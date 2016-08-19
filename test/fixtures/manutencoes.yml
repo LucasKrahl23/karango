@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  descricao: MyString
+  odometro: 1
+  manutencao_dt: 2016-08-18
+  valor: 
+  validade_dt: 2016-08-18
+  kmvalidade: 1
+  obs: MyString
+  formaspagamento: one
+  veiculo: one
+
+two:
+  descricao: MyString
+  odometro: 1
+  manutencao_dt: 2016-08-18
+  valor: 
+  validade_dt: 2016-08-18
+  kmvalidade: 1
+  obs: MyString
+  formaspagamento: two
+  veiculo: two

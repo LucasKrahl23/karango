@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Descricao:</strong>
+  <%= @despesa.descricao %>
+</p>
+
+<p>
+  <strong>Despesa dt:</strong>
+  <%= @despesa.despesa_dt %>
+</p>
+
+<p>
+  <strong>Valor:</strong>
+  <%= @despesa.valor %>
+</p>
+
+<p>
+  <strong>Formaspagamento:</strong>
+  <%= @despesa.formaspagamento %>
+</p>
+
+<p>
+  <strong>Veiculo:</strong>
+  <%= @despesa.veiculo %>
+</p>
+
+<p>
+  <strong>Obs:</strong>
+  <%= @despesa.obs %>
+</p>
+
+<%= link_to 'Edit', edit_despesa_path(@despesa) %> |
+<%= link_to 'Back', despesas_path %>

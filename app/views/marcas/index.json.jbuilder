@@ -1,0 +1,1 @@
+json.array! @marcas, partial: 'marcas/marcas', as: :marcas

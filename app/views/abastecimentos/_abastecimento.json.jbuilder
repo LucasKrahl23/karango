@@ -1,0 +1,2 @@
+json.extract! abastecimento, :id, :abastecimento_dt, :odometro, :precolitro, :precototal, :obs, :veiculo_id, :completou_flag, :combustivel_id, :formaspagamento_id, :created_at, :updated_at
+json.url abastecimento_url(abastecimento, format: :json)

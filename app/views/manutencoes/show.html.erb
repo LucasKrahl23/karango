@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Descricao:</strong>
+  <%= @manutencao.descricao %>
+</p>
+
+<p>
+  <strong>Odometro:</strong>
+  <%= @manutencao.odometro %>
+</p>
+
+<p>
+  <strong>Manutencao dt:</strong>
+  <%= @manutencao.manutencao_dt %>
+</p>
+
+<p>
+  <strong>Valor:</strong>
+  <%= @manutencao.valor %>
+</p>
+
+<p>
+  <strong>Validade dt:</strong>
+  <%= @manutencao.validade_dt %>
+</p>
+
+<p>
+  <strong>Kmvalidade:</strong>
+  <%= @manutencao.kmvalidade %>
+</p>
+
+<p>
+  <strong>Obs:</strong>
+  <%= @manutencao.obs %>
+</p>
+
+<p>
+  <strong>Formaspagamento:</strong>
+  <%= @manutencao.formaspagamento %>
+</p>
+
+<p>
+  <strong>Veiculo:</strong>
+  <%= @manutencao.veiculo %>
+</p>
+
+<%= link_to 'Edit', edit_manutencao_path(@manutencao) %> |
+<%= link_to 'Back', manutencoes_path %>

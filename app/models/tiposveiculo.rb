@@ -1,0 +1,2 @@
+class Tiposveiculo < ApplicationRecord
+end

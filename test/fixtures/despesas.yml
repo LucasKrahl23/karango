@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  descricao: MyString
+  despesa_dt: 2016-08-18
+  valor: 
+  formaspagamento: one
+  veiculo: one
+  obs: MyString
+
+two:
+  descricao: MyString
+  despesa_dt: 2016-08-18
+  valor: 
+  formaspagamento: two
+  veiculo: two
+  obs: MyString

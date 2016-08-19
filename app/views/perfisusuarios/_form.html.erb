@@ -1,0 +1,27 @@
+<%= form_for(perfisusuario) do |f| %>
+  <% if perfisusuario.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(perfisusuario.errors.count, "error") %> prohibited this perfisusuario from being saved:</h2>
+
+      <ul>
+      <% perfisusuario.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :nome %>
+    <%= f.text_field :nome %>
+  </div>
+
+  <div class="field">
+    <%= f.label :admin_flag %>
+    <%= f.check_box :admin_flag %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

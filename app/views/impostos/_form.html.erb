@@ -1,0 +1,52 @@
+<%= form_for(imposto) do |f| %>
+  <% if imposto.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(imposto.errors.count, "error") %> prohibited this imposto from being saved:</h2>
+
+      <ul>
+      <% imposto.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :descricao %>
+    <%= f.text_field :descricao %>
+  </div>
+
+  <div class="field">
+    <%= f.label :valor %>
+    <%= f.text_field :valor %>
+  </div>
+
+  <div class="field">
+    <%= f.label :vencimento_dt %>
+    <%= f.date_select :vencimento_dt %>
+  </div>
+
+  <div class="field">
+    <%= f.label :obs %>
+    <%= f.text_field :obs %>
+  </div>
+
+  <div class="field">
+    <%= f.label :pago_flag %>
+    <%= f.text_field :pago_flag %>
+  </div>
+
+  <div class="field">
+    <%= f.label :formaspagamento_id %>
+    <%= f.text_field :formaspagamento_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :veiculo_id %>
+    <%= f.text_field :veiculo_id %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

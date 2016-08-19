@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  descricao: MyString
+  valor: 
+  vencimento_dt: 2016-08-18
+  obs: MyString
+  pago_flag: MyString
+  formaspagamento: one
+  veiculo: one
+
+two:
+  descricao: MyString
+  valor: 
+  vencimento_dt: 2016-08-18
+  obs: MyString
+  pago_flag: MyString
+  formaspagamento: two
+  veiculo: two

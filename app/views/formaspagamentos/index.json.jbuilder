@@ -1,0 +1,1 @@
+json.array! @formaspagamentos, partial: 'formaspagamentos/formaspagamento', as: :formaspagamento
