@@ -1,4 +1,4 @@
-<%= form_for(usuario) do |f| %>
+<%= form_for(usuario, :html => { :class => 'form-horizontal' }) do |f| %>
   <% if usuario.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(usuario.errors.count, "error") %> prohibited this usuario from being saved:</h2>
@@ -11,37 +11,92 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :nome %>
-    <%= f.text_field :nome %>
+  <div class="row example-row">
+    <div class="col-md-3">Nome:</div> 
+      <div class="col-md-9">
+        <div class="inputer">
+            <div class="input-wrapper">
+              <%= f.text_field :nome, class: 'form-control' %>
+            </div>
+          </div>
+      </div> 
+  </div>
+  
+  <div class="row example-row">
+    <div class="col-md-3">Email:</div> 
+      <div class="col-md-9">
+        <div class="inputer">
+            <div class="input-wrapper">
+              <%= f.text_field :email, class: 'form-control inputmask inputmask-email' %>
+            </div>
+          </div>
+      </div> 
   </div>
 
-  <div class="field">
-    <%= f.label :email %>
-    <%= f.text_field :email %>
+  <div class="row example-row">
+    <div class="col-md-3">Senha:</div> 
+      <div class="col-md-9">
+        <div class="inputer">
+            <div class="input-wrapper">
+              <%= f.text_field :senha, type: 'password', class: 'form-control' %>
+            </div>
+          </div>
+      </div> 
   </div>
 
-  <div class="field">
-    <%= f.label :senha %>
-    <%= f.text_field :senha %>
+  <div class="row example-row">
+    <div class="col-md-3">Data Cadastro:</div> 
+      <div class="col-md-9">
+       <div class="control-group">
+          <div class="controls">
+            <div class="input-group">
+            <span class="input-group-addon"><i class="ion-android-calendar"></i></span>
+            <div class="inputer">
+              <div class="input-wrapper">
+              <%= f.text_field :cadastro_dt, class: 'form-control bootstrap-daterangepicker-basic valid active' %>
+              </div>
+            </div>
+          </div>
+        </div>
+       </div>
+      </div> 
   </div>
 
-  <div class="field">
-    <%= f.label :cadastro_dt %>
-    <%= f.date_select :cadastro_dt %>
+  <div class="row example-row">
+    <div class="col-md-3">Ativo:</div> 
+      <div class="col-md-9">
+        <div class="switcher">
+            <%= f.check_box :ativo_flag, hidden: 'hidden' %>
+            <label for="usuario_ativo_flag"></label>
+          </div>
+      </div> 
   </div>
 
-  <div class="field">
-    <%= f.label :ativo_flag %>
-    <%= f.check_box :ativo_flag %>
+  <div class="row example-row">
+    <div class="col-md-3">Perfil Usuário:</div> 
+      <div class="col-md-9">
+        <%= f.collection_select(:perfisusuario_id, Perfisusuario.all, :id, :nome, {prompt: "Selecione"}, {class: 'selectpicker'}) %>
+      </div> 
   </div>
 
-  <div class="field">
-    <%= f.label :perfisusuario_id %>
-    <%= f.text_field :perfisusuario_id %>
+  <div class="row example-row">
+    <div class="col-md-3">Token:</div> 
+      <div class="col-md-9">
+        <div class="inputer">
+            <div class="input-wrapper">
+              <%= f.text_field :token, class: 'form-control' %>
+            </div>
+          </div>
+      </div> 
   </div>
 
-  <div class="actions">
-    <%= f.submit %>
+  <div class="form-buttons">
+    <div class="row">
+      <div class="col-md-offset-3 col-md-9">
+        <%= f.submit 'Salvar', :class => 'btn btn-blue btn-ripple' %>
+        <input type="reset" value="Limpar Campos" class="btn btn-flat btn-danger btn-ripple">
+        <a href="<%= usuarios_path %>" class="btn btn-flat btn-ripple">Voltar</a>
+      </div>
+    </div>
   </div>
 <% end %>
