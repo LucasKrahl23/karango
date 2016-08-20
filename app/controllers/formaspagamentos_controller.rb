@@ -28,8 +28,8 @@ class FormaspagamentosController < ApplicationController
 
     respond_to do |format|
       if @formaspagamento.save
-        format.html { redirect_to @formaspagamento, notice: 'Formaspagamento was successfully created.' }
-        format.json { render :show, status: :created, location: @formaspagamento }
+        format.html { redirect_to formaspagamentos_url, notice: 'Formaspagamento was successfully created.' }
+        format.json { head :no_content }
       else
         format.html { render :new }
         format.json { render json: @formaspagamento.errors, status: :unprocessable_entity }
@@ -42,8 +42,8 @@ class FormaspagamentosController < ApplicationController
   def update
     respond_to do |format|
       if @formaspagamento.update(formaspagamento_params)
-        format.html { redirect_to @formaspagamento, notice: 'Formaspagamento was successfully updated.' }
-        format.json { render :show, status: :ok, location: @formaspagamento }
+        format.html { redirect_to formaspagamentos_url, notice: 'Formaspagamento was successfully updated.' }
+        format.json { head :no_content }
       else
         format.html { render :edit }
         format.json { render json: @formaspagamento.errors, status: :unprocessable_entity }
