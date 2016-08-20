@@ -28,8 +28,8 @@ class MarcasController < ApplicationController
 
     respond_to do |format|
       if @marcas.save
-        format.html { redirect_to @marcas, notice: 'Marcas was successfully created.' }
-        format.json { render :show, status: :created, location: @marcas }
+        format.html { redirect_to marcas_index_url, notice: 'Marcas was successfully created.' }
+        format.json { head :no_content }
       else
         format.html { render :new }
         format.json { render json: @marcas.errors, status: :unprocessable_entity }
@@ -42,8 +42,8 @@ class MarcasController < ApplicationController
   def update
     respond_to do |format|
       if @marcas.update(marcas_params)
-        format.html { redirect_to @marcas, notice: 'Marcas was successfully updated.' }
-        format.json { render :show, status: :ok, location: @marcas }
+        format.html { redirect_to marcas_index_url, notice: 'Marcas was successfully updated.' }
+        format.json { head :no_content }
       else
         format.html { render :edit }
         format.json { render json: @marcas.errors, status: :unprocessable_entity }
