@@ -28,8 +28,8 @@ class CombustiveisController < ApplicationController
 
     respond_to do |format|
       if @combustivel.save
-        format.html { redirect_to @combustivel, notice: 'Combustivel was successfully created.' }
-        format.json { render :show, status: :created, location: @combustivel }
+        format.html { redirect_to combustiveis_url, notice: 'Combustivel was successfully created.' }
+        format.json { head :no_content }
       else
         format.html { render :new }
         format.json { render json: @combustivel.errors, status: :unprocessable_entity }
@@ -42,8 +42,8 @@ class CombustiveisController < ApplicationController
   def update
     respond_to do |format|
       if @combustivel.update(combustivel_params)
-        format.html { redirect_to @combustivel, notice: 'Combustivel was successfully updated.' }
-        format.json { render :show, status: :ok, location: @combustivel }
+        format.html { redirect_to combustiveis_url, notice: 'Combustivel was successfully updated.' }
+        format.json { head :no_content }
       else
         format.html { render :edit }
         format.json { render json: @combustivel.errors, status: :unprocessable_entity }

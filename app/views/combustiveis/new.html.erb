@@ -1,5 +1,14 @@
-<h1>New Combustivel</h1>
-
-<%= render 'form', combustivel: @combustivel %>
-
-<%= link_to 'Back', combustiveis_path %>
+<div class="row">
+  <div class="col-md-12">
+    <div class="panel">
+      <div class="panel-heading">
+        <div class="panel-title">
+          <h4>Cadastro de Combustíveis</h4>
+      </div>
+      </div><!--.panel-heading-->
+      <div class="panel-body">
+		<%= render 'form', combustivel: @combustivel %>        
+      </div><!--.panel-body-->
+    </div><!--.panel-->
+  </div><!--.col-md-12-->
+</div>

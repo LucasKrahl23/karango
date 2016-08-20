@@ -1,27 +1,44 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Combustiveis</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Nome</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @combustiveis.each do |combustivel| %>
-      <tr>
-        <td><%= combustivel.nome %></td>
-        <td><%= link_to 'Show', combustivel %></td>
-        <td><%= link_to 'Edit', edit_combustivel_path(combustivel) %></td>
-        <td><%= link_to 'Destroy', combustivel, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Combustivel', new_combustivel_path %>
+<div class="row">
+  <div class="col-md-12">
+    <div class="panel">
+      <div class="panel-heading">
+        <div class="panel-title">
+          <h4>Cadastro de Combustíveis</h4>
+            <a class="btn btn-floating btn-teal btn-light-green pull-right" href="<%=new_combustivel_path %>">
+              <i class="ion-android-add"></i>
+            </a>
+        </div>
+        
+      </div><!--.panel-heading-->
+      <div class="panel-body">
+        <p id="notice"><%= notice %></p>
+        <div class="unseen">
+          <table class="table table-bordered table-striped table-condensed">
+            <thead>
+              <tr>
+                <th>Código</th>
+                <th>Nome</th>
+                <th style="width:120px">Ações</th>
+            </thead>
+            <tbody>
+              <% @combustiveis.each do |combustivel| %>
+                <tr>
+                  <td><%= combustivel.id %></td>
+                  <td><%= combustivel.nome %></td>
+                  <td align="center">
+                    <a href="<%= edit_combustivel_path(combustivel) %>" class="btn btn-default btn-ripple">
+                      <span class="ion-edit">
+                    </a>
+                    <a class="btn btn-default btn-red btn-ripple" title="Remover registro">
+                      <span class="ion-android-delete"></span>
+                    </a>
+                  </td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div><!--.unseen-->
+      </div><!--.panel-body-->
+    </div><!--.panel-->
+  </div><!--.col-md-12-->
+</div>
