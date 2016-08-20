@@ -1,10 +1,10 @@
 class MarcasController < ApplicationController
-  before_action :set_marcas, only: [:show, :edit, :update, :destroy]
+  before_action :set_marca, only: [:show, :edit, :update, :destroy]
 
   # GET /marcas
   # GET /marcas.json
   def index
-    @marcas = Marcas.all
+    @marcas = Marca.all
   end
 
   # GET /marcas/1
@@ -14,7 +14,7 @@ class MarcasController < ApplicationController
 
   # GET /marcas/new
   def new
-    @marcas = Marcas.new
+    @marca = Marca.new
   end
 
   # GET /marcas/1/edit
@@ -24,15 +24,15 @@ class MarcasController < ApplicationController
   # POST /marcas
   # POST /marcas.json
   def create
-    @marcas = Marcas.new(marcas_params)
+    @marca = Marca.new(marca_params)
 
     respond_to do |format|
-      if @marcas.save
-        format.html { redirect_to marcas_index_url, notice: 'Marcas was successfully created.' }
+      if @marca.save
+        format.html { redirect_to marcas_url, notice: 'Marca was successfully created.' }
         format.json { head :no_content }
       else
         format.html { render :new }
-        format.json { render json: @marcas.errors, status: :unprocessable_entity }
+        format.json { render json: @marca.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -41,12 +41,12 @@ class MarcasController < ApplicationController
   # PATCH/PUT /marcas/1.json
   def update
     respond_to do |format|
-      if @marcas.update(marcas_params)
-        format.html { redirect_to marcas_index_url, notice: 'Marcas was successfully updated.' }
+      if @marca.update(marca_params)
+        format.html { redirect_to marcas_url, notice: 'Marca was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render :edit }
-        format.json { render json: @marcas.errors, status: :unprocessable_entity }
+        format.json { render json: @marca.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -54,21 +54,21 @@ class MarcasController < ApplicationController
   # DELETE /marcas/1
   # DELETE /marcas/1.json
   def destroy
-    @marcas.destroy
+    @marca.destroy
     respond_to do |format|
-      format.html { redirect_to marcas_index_url, notice: 'Marcas was successfully destroyed.' }
+      format.html { redirect_to marcas_url, notice: 'Marca was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_marcas
-      @marcas = Marcas.find(params[:id])
+    def set_marca
+      @marca = Marca.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
-    def marcas_params
-      params.require(:marcas).permit(:nome)
+    def marca_params
+      params.require(:marca).permit(:nome)
     end
 end

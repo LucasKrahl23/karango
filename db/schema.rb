@@ -142,7 +142,7 @@ ActiveRecord::Schema.define(version: 20160820025725) do
   add_foreign_key "manutencoes", "formaspagamentos"
   add_foreign_key "manutencoes", "veiculos"
   add_foreign_key "usuarios", "perfisusuarios"
-  add_foreign_key "veiculos", "marcas", column: "marca_id"
+  add_foreign_key "veiculos", "marcas"
   add_foreign_key "veiculos", "tiposveiculos"
   add_foreign_key "veiculos", "usuarios"
 end

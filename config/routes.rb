@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :marcas
   resources :abastecimentos
   resources :manutencoes
   resources :impostos
@@ -8,7 +9,6 @@ Rails.application.routes.draw do
   resources :formaspagamentos
   resources :tiposveiculos
   resources :combustiveis
-  resources :marcas
   resources :perfisusuarios
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
