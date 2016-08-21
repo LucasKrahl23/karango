@@ -1,6 +1,14 @@
-<h1>Editing Manutencao</h1>
-
-<%= render 'form', manutencao: @manutencao %>
-
-<%= link_to 'Show', @manutencao %> |
-<%= link_to 'Back', manutencoes_path %>
+<div class="row">
+  <div class="col-md-12">
+    <div class="panel">
+      <div class="panel-heading">
+        <div class="panel-title">
+          <h4>Cadastro de Manutenções</h4>
+      </div>
+      </div><!--.panel-heading-->
+      <div class="panel-body">
+		<%= render 'form', manutencao: @manutencao %>
+      </div><!--.panel-body-->
+    </div><!--.panel-->
+  </div><!--.col-md-12-->
+</div>
