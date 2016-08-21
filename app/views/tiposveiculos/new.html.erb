@@ -1,5 +1,14 @@
-<h1>New Tiposveiculo</h1>
-
-<%= render 'form', tiposveiculo: @tiposveiculo %>
-
-<%= link_to 'Back', tiposveiculos_path %>
+<div class="row">
+  <div class="col-md-12">
+    <div class="panel">
+      <div class="panel-heading">
+        <div class="panel-title">
+          <h4>Cadastro de Tipos de Veículos</h4>
+      </div>
+      </div><!--.panel-heading-->
+      <div class="panel-body">
+		<%= render 'form', tiposveiculo: @tiposveiculo %>
+      </div><!--.panel-body-->
+    </div><!--.panel-->
+  </div><!--.col-md-12-->
+</div>

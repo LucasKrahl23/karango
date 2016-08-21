@@ -28,8 +28,8 @@ class TiposveiculosController < ApplicationController
 
     respond_to do |format|
       if @tiposveiculo.save
-        format.html { redirect_to @tiposveiculo, notice: 'Tiposveiculo was successfully created.' }
-        format.json { render :show, status: :created, location: @tiposveiculo }
+        format.html { redirect_to tiposveiculos_url, notice: 'Tiposveiculo was successfully created.' }
+        format.json { head :no_content }
       else
         format.html { render :new }
         format.json { render json: @tiposveiculo.errors, status: :unprocessable_entity }
@@ -42,8 +42,8 @@ class TiposveiculosController < ApplicationController
   def update
     respond_to do |format|
       if @tiposveiculo.update(tiposveiculo_params)
-        format.html { redirect_to @tiposveiculo, notice: 'Tiposveiculo was successfully updated.' }
-        format.json { render :show, status: :ok, location: @tiposveiculo }
+        format.html { redirect_to tiposveiculos_url, notice: 'Tiposveiculo was successfully updated.' }
+        format.json { head :no_content }
       else
         format.html { render :edit }
         format.json { render json: @tiposveiculo.errors, status: :unprocessable_entity }

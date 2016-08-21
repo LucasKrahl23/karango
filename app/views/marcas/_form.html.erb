@@ -1,22 +1,34 @@
-<%= form_for(marcas) do |f| %>
-  <% if marcas.errors.any? %>
+<%= form_for(marca, :html => { :class => 'form-horizontal' }) do |f| %>
+  <% if marca.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(marcas.errors.count, "error") %> prohibited this marcas from being saved:</h2>
+      <h2><%= pluralize(marca.errors.count, "error") %> prohibited this marca from being saved:</h2>
 
       <ul>
-      <% marcas.errors.full_messages.each do |message| %>
+      <% marca.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :nome %>
-    <%= f.text_field :nome %>
+  <div class="row example-row">
+    <div class="col-md-3">Nome:</div> 
+      <div class="col-md-9">
+        <div class="inputer">
+            <div class="input-wrapper">
+              <%= f.text_field :nome, class: 'form-control' %>
+            </div>
+          </div>
+      </div> 
   </div>
 
-  <div class="actions">
-    <%= f.submit %>
+  <div class="form-buttons">
+    <div class="row">
+      <div class="col-md-offset-3 col-md-9">
+        <%= f.submit 'Salvar', :class => 'btn btn-blue btn-ripple' %>
+        <input type="reset" value="Limpar Campos" class="btn btn-flat btn-danger btn-ripple">
+        <a href="<%= marcas_path %>" class="btn btn-flat btn-ripple">Voltar</a>
+      </div>
+    </div>
   </div>
 <% end %>

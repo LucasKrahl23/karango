@@ -28,8 +28,8 @@ class VeiculosController < ApplicationController
 
     respond_to do |format|
       if @veiculo.save
-        format.html { redirect_to @veiculo, notice: 'Veiculo was successfully created.' }
-        format.json { render :show, status: :created, location: @veiculo }
+        format.html { redirect_to veiculos_url, notice: 'Veiculo was successfully created.' }
+        format.json { head :no_content }
       else
         format.html { render :new }
         format.json { render json: @veiculo.errors, status: :unprocessable_entity }
@@ -42,8 +42,8 @@ class VeiculosController < ApplicationController
   def update
     respond_to do |format|
       if @veiculo.update(veiculo_params)
-        format.html { redirect_to @veiculo, notice: 'Veiculo was successfully updated.' }
-        format.json { render :show, status: :ok, location: @veiculo }
+        format.html { redirect_to veiculos_url, notice: 'Veiculo was successfully updated.' }
+       format.json { head :no_content }
       else
         format.html { render :edit }
         format.json { render json: @veiculo.errors, status: :unprocessable_entity }

@@ -1,6 +1,14 @@
-<h1>Editing Perfisusuario</h1>
-
-<%= render 'form', perfisusuario: @perfisusuario %>
-
-<%= link_to 'Show', @perfisusuario %> |
-<%= link_to 'Back', perfisusuarios_path %>
+<div class="row">
+  <div class="col-md-12">
+    <div class="panel">
+      <div class="panel-heading">
+        <div class="panel-title">
+          <h4>Cadastro de Perfis de Usuários</h4>
+      </div>
+      </div><!--.panel-heading-->
+      <div class="panel-body">
+		    <%= render 'form', perfisusuario: @perfisusuario %>
+      </div><!--.panel-body-->
+    </div><!--.panel-->
+  </div><!--.col-md-12-->
+</div>

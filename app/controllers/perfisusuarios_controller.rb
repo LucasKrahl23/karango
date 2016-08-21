@@ -28,8 +28,8 @@ class PerfisusuariosController < ApplicationController
 
     respond_to do |format|
       if @perfisusuario.save
-        format.html { redirect_to @perfisusuario, notice: 'Perfisusuario was successfully created.' }
-        format.json { render :show, status: :created, location: @perfisusuario }
+        format.html { redirect_to perfisusuarios_url, notice: 'Perfisusuario was successfully created.' }
+        format.json { head :no_content }
       else
         format.html { render :new }
         format.json { render json: @perfisusuario.errors, status: :unprocessable_entity }
@@ -42,8 +42,8 @@ class PerfisusuariosController < ApplicationController
   def update
     respond_to do |format|
       if @perfisusuario.update(perfisusuario_params)
-        format.html { redirect_to @perfisusuario, notice: 'Perfisusuario was successfully updated.' }
-        format.json { render :show, status: :ok, location: @perfisusuario }
+        format.html { redirect_to perfisusuarios_url, notice: 'Perfisusuario was successfully updated.' }
+        format.json { head :no_content }
       else
         format.html { render :edit }
         format.json { render json: @perfisusuario.errors, status: :unprocessable_entity }

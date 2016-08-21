@@ -1,5 +1,14 @@
-<h1>New Marcas</h1>
-
-<%= render 'form', marcas: @marcas %>
-
-<%= link_to 'Back', marcas_index_path %>
+<div class="row">
+  <div class="col-md-12">
+    <div class="panel">
+      <div class="panel-heading">
+        <div class="panel-title">
+          <h4>Cadastro de Marcas</h4>
+      </div>
+      </div><!--.panel-heading-->
+      <div class="panel-body">
+		    <%= render 'form', marca: @marca %>
+      </div><!--.panel-body-->
+    </div><!--.panel-->
+  </div><!--.col-md-12-->
+</div>
