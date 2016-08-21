@@ -1,4 +1,4 @@
-<%= form_for(abastecimento) do |f| %>
+<%= form_for(abastecimento, :html => { :class => 'form-horizontal' }) do |f| %>
   <% if abastecimento.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(abastecimento.errors.count, "error") %> prohibited this abastecimento from being saved:</h2>
@@ -11,52 +11,106 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :abastecimento_dt %>
-    <%= f.date_select :abastecimento_dt %>
+  <div class="row example-row">
+    <div class="col-md-3">Data Abastecimento:</div> 
+      <div class="col-md-9">
+       <div class="control-group">
+          <div class="controls">
+            <div class="input-group">
+            <span class="input-group-addon"><i class="ion-android-calendar"></i></span>
+            <div class="inputer">
+              <div class="input-wrapper">
+              <%= f.text_field :abastecimento_dt, class: 'form-control bootstrap-daterangepicker-basic valid active' %>
+              </div>
+            </div>
+          </div>
+        </div>
+       </div>
+      </div> 
   </div>
 
-  <div class="field">
-    <%= f.label :odometro %>
-    <%= f.number_field :odometro %>
+  <div class="row example-row">
+    <div class="col-md-3">Odometro:</div> 
+      <div class="col-md-9">
+        <div class="inputer">
+            <div class="input-wrapper">
+              <%= f.number_field :odometro, class: 'form-control' %>
+            </div>
+          </div>
+      </div> 
   </div>
 
-  <div class="field">
-    <%= f.label :precolitro %>
-    <%= f.text_field :precolitro %>
+  <div class="row example-row">
+    <div class="col-md-3">Preço Litro:</div> 
+      <div class="col-md-9">
+        <div class="inputer">
+            <div class="input-wrapper">
+              <%= f.text_field :precolitro, class: 'form-control' %>
+            </div>
+          </div>
+      </div> 
+  </div>
+  
+  <div class="row example-row">
+    <div class="col-md-3">Preço Total:</div> 
+      <div class="col-md-9">
+        <div class="inputer">
+            <div class="input-wrapper">
+              <%= f.text_field :precototal, class: 'form-control' %>
+            </div>
+          </div>
+      </div> 
   </div>
 
-  <div class="field">
-    <%= f.label :precototal %>
-    <%= f.text_field :precototal %>
+  <div class="row example-row">
+    <div class="col-md-3">Observações:</div> 
+      <div class="col-md-9">
+        <div class="inputer">
+            <div class="input-wrapper">
+              <%= f.text_field :obs, class: 'form-control' %>
+            </div>
+          </div>
+      </div> 
   </div>
 
-  <div class="field">
-    <%= f.label :obs %>
-    <%= f.text_field :obs %>
+  <div class="row example-row">
+    <div class="col-md-3">Veículo:</div> 
+      <div class="col-md-9">
+        <%= f.collection_select(:veiculo_id, Veiculo.all, :id, :nome, {prompt: "Selecione"}, {class: 'selectpicker'}) %>
+      </div> 
   </div>
 
-  <div class="field">
-    <%= f.label :veiculo_id %>
-    <%= f.text_field :veiculo_id %>
+  <div class="row example-row">
+    <div class="col-md-3">Completou:</div> 
+      <div class="col-md-9">
+        <div class="switcher">
+            <%= f.check_box :completou_flag, hidden: 'hidden' %>
+            <label for="abastecimento_completou_flag"></label>
+          </div>
+      </div> 
   </div>
 
-  <div class="field">
-    <%= f.label :completou_flag %>
-    <%= f.text_field :completou_flag %>
+  <div class="row example-row">
+    <div class="col-md-3">Combustível:</div> 
+      <div class="col-md-9">
+        <%= f.collection_select(:combustivel_id, Combustivel.all, :id, :nome, {prompt: "Selecione"}, {class: 'selectpicker'}) %>
+      </div> 
   </div>
 
-  <div class="field">
-    <%= f.label :combustivel_id %>
-    <%= f.text_field :combustivel_id %>
+  <div class="row example-row">
+    <div class="col-md-3">Forma de Pagamento:</div> 
+      <div class="col-md-9">
+        <%= f.collection_select(:formaspagamento_id, Formaspagamento.all, :id, :nome, {prompt: "Selecione"}, {class: 'selectpicker'}) %>
+      </div> 
   </div>
 
-  <div class="field">
-    <%= f.label :formaspagamento_id %>
-    <%= f.text_field :formaspagamento_id %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
+  <div class="form-buttons">
+    <div class="row">
+      <div class="col-md-offset-3 col-md-9">
+        <%= f.submit 'Salvar', :class => 'btn btn-blue btn-ripple' %>
+        <input type="reset" value="Limpar Campos" class="btn btn-flat btn-danger btn-ripple">
+        <a href="<%= usuarios_path %>" class="btn btn-flat btn-ripple">Voltar</a>
+      </div>
+    </div>
   </div>
 <% end %>
