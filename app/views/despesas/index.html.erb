@@ -28,7 +28,7 @@
                   <td><%= despesa.descricao %></td>
                   <td><%= despesa.despesa_dt %></td>
                   <td><%= despesa.valor %></td>
-                  <td><%= despesa.veiculo %></td>
+                  <td><%= Veiculo.find(despesa.veiculo).nome %></td>
                   
                   <td align="center">
                     <a href="<%= edit_despesa_path(despesa) %>" class="btn btn-default btn-ripple">

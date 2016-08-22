@@ -32,7 +32,7 @@
                   <td><%= abastecimento.odometro %></td>
                   <td><%= abastecimento.precolitro %></td>
                   <td><%= abastecimento.precototal %></td>
-                  <td><%= abastecimento.veiculo %></td>
+                  <td><%= Veiculo.find(abastecimento.veiculo).nome %></td>
                   <td align="center">
                     <% if abastecimento.completou_flag %>
                       <div class="checkboxer">
@@ -46,7 +46,7 @@
                       </div>
                     <% end %>
                   </td>
-                  <td><%= abastecimento.combustivel %></td>
+                  <td><%= Combustivel.find(abastecimento.combustivel).nome %></td>
                   
                   <td align="center">
                     <a href="<%= edit_abastecimento_path(abastecimento) %>" class="btn btn-default btn-ripple">

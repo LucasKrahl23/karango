@@ -30,8 +30,7 @@
                   <td><%= manutencao.odometro %></td>
                   <td><%= manutencao.manutencao_dt %></td>
                   <td><%= manutencao.valor %></td>
-                  <td><%= manutencao.veiculo %></td>
-                  
+                  <td><%= Veiculo.find(manutencao.veiculo).nome %></td>
                   <td align="center">
                     <a href="<%= edit_manutencao_path(manutencao) %>" class="btn btn-default btn-ripple">
                       <span class="ion-edit">

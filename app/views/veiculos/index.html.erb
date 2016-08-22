@@ -30,9 +30,9 @@
                   <td><%= veiculo.id %></td>
                   <td><%= veiculo.nome %></td>
                   <td><%= veiculo.placa %></td>
-                  <td><%= veiculo.usuario %></td>
-                  <td><%= veiculo.marca %></td>
-                  <td><%= veiculo.tiposveiculo %></td>
+                  <td><%= Usuario.find(veiculo.usuario).nome %></td>
+                  <td><%= Marca.find(veiculo.marca).nome %></td>
+                  <td><%= Tiposveiculo.find(veiculo.tiposveiculo).nome %></td>
                   
                   <td align="center">
                     <a href="<%= edit_veiculo_path(veiculo) %>" class="btn btn-default btn-ripple">

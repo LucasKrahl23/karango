@@ -46,7 +46,7 @@
                     </div>
                   <% end %>
                   </td>
-                  <td><%= usuario.perfisusuario %></td>
+                  <td><%= Perfisusuario.find(usuario.perfisusuario).nome %></td>
                   
                   <td align="center">
                     <a href="<%= edit_usuario_path(usuario) %>" class="btn btn-default btn-ripple">

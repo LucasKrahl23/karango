@@ -42,7 +42,7 @@
                       </div>
                     <% end %>
                   </td>
-                  <td><%= imposto.veiculo %></td>
+                  <td><%= Veiculo.find(imposto.veiculo).nome %></td>
                   
                   <td align="center">
                     <a href="<%= edit_imposto_path(imposto) %>" class="btn btn-default btn-ripple">
