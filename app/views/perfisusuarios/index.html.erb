@@ -41,14 +41,30 @@
                 </td>
   
                   <td align="center">
-                    <a href="<%= edit_perfisusuario_path(perfisusuario) %>" class="btn btn-default btn-ripple">
+                    <a href="<%= edit_perfisusuario_path(perfisusuario) %>" class="btn btn-default btn-ripple" title="Editar registro">
                       <span class="ion-edit">
                     </a>
-                    <a class="btn btn-default btn-red btn-ripple" title="Remover registro">
+                    <a class="btn btn-default btn-red btn-ripple" title="Remover registro" data-toggle="modal" data-target="#deleteModal_<%= perfisusuario.id %>">
                       <span class="ion-android-delete"></span>
                     </a>
                   </td>
                 </tr>
+                <div class="modal scale fade" id="deleteModal_<%= perfisusuario.id %>" tabindex="-1" role="dialog" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h4 class="modal-title">Karango WepApp</h4>
+                      </div>
+                      <div class="modal-body">
+                        Deseja realmente excluir este registro?
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-flat btn-ripple" data-dismiss="modal">Não</button>
+                        <%= button_to "Sim", perfisusuario, :method=>:delete, class: 'btn btn-flat btn-danger btn-ripple' %>
+                      </div>
+                    </div><!--.modal-content-->
+                  </div><!--.modal-dialog-->
+                </div><!--.modal-->
               <% end %>
             </tbody>
           </table>
