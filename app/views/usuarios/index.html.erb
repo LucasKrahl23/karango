@@ -33,7 +33,19 @@
                   <td><%= usuario.email %></td>
                   <td><%= usuario.senha %></td>
                   <td><%= usuario.cadastro_dt %></td>
-                  <td><%= usuario.ativo_flag %></td>
+                  <td align="center">
+                  <% if usuario.ativo_flag %>
+                    <div class="checkboxer">
+                      <input type="checkbox" id="ativo_flag_<%= usuario.id %>" checked disabled>
+                      <label for="ativo_flag_<%= usuario.id %>"></label>
+                    </div>
+                  <% else %>
+                    <div class="checkboxer">
+                      <input type="checkbox" id="ativo_flag_<%= usuario.id %>" disabled>
+                      <label for="ativo_flag_<%= usuario.id %>"></label>
+                    </div>
+                  <% end %>
+                  </td>
                   <td><%= usuario.perfisusuario %></td>
                   
                   <td align="center">
