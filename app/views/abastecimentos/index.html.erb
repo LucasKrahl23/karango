@@ -33,7 +33,19 @@
                   <td><%= abastecimento.precolitro %></td>
                   <td><%= abastecimento.precototal %></td>
                   <td><%= abastecimento.veiculo %></td>
-                  <td><%= abastecimento.completou_flag %></td>
+                  <td align="center">
+                    <% if abastecimento.completou_flag %>
+                      <div class="checkboxer">
+                        <input type="checkbox" id="completou_<%= abastecimento.id %>" checked disabled>
+                        <label for="completou_<%= abastecimento.id %>"></label>
+                      </div>
+                    <% else %>
+                      <div class="checkboxer">
+                        <input type="checkbox" id="completou_<%= abastecimento.id %>" disabled>
+                        <label for="completou_<%= abastecimento.id %>"></label>
+                      </div>
+                    <% end %>
+                  </td>
                   <td><%= abastecimento.combustivel %></td>
                   
                   <td align="center">

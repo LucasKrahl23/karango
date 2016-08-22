@@ -29,7 +29,19 @@
                   <td><%= imposto.descricao %></td>
                   <td><%= imposto.valor %></td>
                   <td><%= imposto.vencimento_dt %></td>
-                  <td><%= imposto.pago_flag %></td>
+                  <td align="center">
+                    <% if imposto.pago_flag %>
+                      <div class="checkboxer">
+                        <input type="checkbox" id="pago_<%= imposto.id %>" checked disabled>
+                        <label for="pago_<%= imposto.id %>"></label>
+                      </div>
+                    <% else %>
+                      <div class="checkboxer">
+                        <input type="checkbox" id="pago_<%= imposto.id %>" disabled>
+                        <label for="pago_<%= imposto.id %>"></label>
+                      </div>
+                    <% end %>
+                  </td>
                   <td><%= imposto.veiculo %></td>
                   
                   <td align="center">

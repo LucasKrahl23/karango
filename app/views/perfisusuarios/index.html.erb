@@ -26,8 +26,20 @@
                 <tr>
                   <td><%= perfisusuario.id %></td>
                   <td><%= perfisusuario.nome %></td>
-                  <td><%= perfisusuario.admin_flag %></td>
-                  
+                  <td align="center">
+                    <% if perfisusuario.admin_flag %>
+                    <div class="checkboxer">
+                      <input type="checkbox" id="admin_<%= perfisusuario.id %>" checked disabled>
+                      <label for="admin_<%= perfisusuario.id %>"></label>
+                    </div>
+                  <% else %>
+                    <div class="checkboxer">
+                      <input type="checkbox" id="admin_<%= perfisusuario.id %>" disabled>
+                      <label for="admin_<%= perfisusuario.id %>"></label>
+                    </div>
+                  <% end %>
+                </td>
+  
                   <td align="center">
                     <a href="<%= edit_perfisusuario_path(perfisusuario) %>" class="btn btn-default btn-ripple">
                       <span class="ion-edit">
