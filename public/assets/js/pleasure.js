@@ -37,7 +37,7 @@ var Pleasure = {
 		blue: "#2095f2",
 		light_blue: "#02a8f3",
 		cyan: "#00bbd3",
-		teal: "#009587",
+		teal: "#4183D7",
 		green: "#4bae4f",
 		light_green: "#8ac249",
 		lime: "#ccdb38",
@@ -322,7 +322,7 @@ var Pleasure = {
 		});
 	},
 
-	/*flashErrorToastrNotification: function () {
+	flashErrorToastrNotification: function () {
 		$(document).ready(function(){
 			var x = document.getElementById("notificacao");
 			closeButton = x.getAttribute('toastr-close-button');
@@ -384,7 +384,7 @@ var Pleasure = {
 		} else {
 			toastr.info(notification, title);
 		}
-	},*/
+	},
 
 	handleFastClick: function () {
 		window.addEventListener('load', function () {
@@ -605,8 +605,8 @@ var Pleasure = {
 		this.handleTabs();
 		this.handleAccordionAndToggles();
 		this.listenToastrNotification();
-		/*this.flashErrorToastrNotification();
-		this.flashErrorClass();*/
+		this.flashErrorToastrNotification();
+		this.flashErrorClass();
 		this.handleFastClick();
 
 		// Form Elements

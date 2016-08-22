@@ -14257,16 +14257,16 @@ button.toast-close-button {
 6.6 - Teal Theme
 */
 .theme-teal .nav-menu .hamburger .patty {
-  background: #009587;
+  background: #4183D7;
 }
 .theme-teal .nav-menu.active .patty {
   background: #fff;
 }
 .theme-teal .nav-search .search:before {
-  border-color: #009587;
+  border-color: #4183D7;
 }
 .theme-teal .nav-search .search:after {
-  background: #009587;
+  background: #4183D7;
 }
 .theme-teal .nav-search.active .search:before {
   background: #fff;
@@ -14276,21 +14276,21 @@ button.toast-close-button {
   background: #fff;
 }
 .theme-teal .overlay .starting-point span {
-  background-color: #009587;
+  background-color: #4183D7;
 }
 .theme-teal .layer-container .menu-layer li.open > a,
 .theme-teal .layer-container .menu-layer li:hover > a {
-  color: #009587;
+  color: #4183D7;
 }
 .theme-teal .layer-container .menu-layer li.open:before,
 .theme-teal .layer-container .menu-layer li:hover:before {
-  color: #009587;
+  color: #4183D7;
 }
 .theme-teal .layer-container .menu-layer li .child-menu li a {
-  color: #009587;
+  color: #4183D7;
 }
 .theme-teal .layer-container .menu-layer li .child-menu li.has-child:before {
-  color: #009587;
+  color: #4183D7;
 }
 .theme-teal .layer-container .menu-layer li .child-menu li.has-child.open {
   background: rgba(0, 149, 135, 0.05);
@@ -14302,30 +14302,30 @@ button.toast-close-button {
   background: rgba(0, 149, 135, 0.1);
 }
 .theme-teal .layer-container .menu-layer.active {
-  background: #008679;
+  background: #4B77BE;
 }
 .theme-teal .layer-container .search-layer.active {
-  background: #008679;
+  background: #4B77BE;
 }
 .theme-teal .layer-container .user-layer .nav > li > a {
-  color: #009587;
+  color: #4183D7;
 }
 .theme-teal .layer-container .user-layer .nav > li.active > a {
   color: #fff;
-  background: #009587;
+  background: #4183D7;
 }
 .theme-teal .layer-container .user-layer .nav > li.active > a:hover,
 .theme-teal .layer-container .user-layer .nav > li.active > a:focus {
-  background: #009587;
+  background: #4183D7;
 }
 .theme-teal .layer-container .user-layer .tab-content .message-list .selected a {
   background: rgba(0, 149, 135, 0.1) !important;
 }
 .theme-teal .layer-container .user-layer .tab-content .message-list .list-content .title {
-  color: #009587;
+  color: #4183D7;
 }
 .theme-teal .layer-container .user-layer #messages .mobile-back {
-  background: #009587;
+  background: #4183D7;
 }
 .theme-teal .messages .message.right .message-text {
   background-color: #00e2cc;
