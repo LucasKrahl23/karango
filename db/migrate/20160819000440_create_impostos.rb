@@ -5,7 +5,7 @@ class CreateImpostos < ActiveRecord::Migration[5.0]
       t.numeric :valor
       t.date :vencimento_dt
       t.string :obs
-      t.string :pago_flag
+      t.boolean :pago_flag
       t.references :formaspagamento, foreign_key: true
       t.references :veiculo, foreign_key: true
 

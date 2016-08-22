@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 20160820025725) do
     t.decimal  "precototal"
     t.string   "obs"
     t.integer  "veiculo_id"
-    t.string   "completou_flag"
+    t.boolean  "completou_flag"
     t.integer  "combustivel_id"
     t.integer  "formaspagamento_id"
     t.datetime "created_at",         null: false
@@ -62,7 +62,7 @@ ActiveRecord::Schema.define(version: 20160820025725) do
     t.decimal  "valor"
     t.date     "vencimento_dt"
     t.string   "obs"
-    t.string   "pago_flag"
+    t.boolean  "pago_flag"
     t.integer  "formaspagamento_id"
     t.integer  "veiculo_id"
     t.datetime "created_at",         null: false
