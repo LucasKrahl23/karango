@@ -7,7 +7,7 @@ class CreateAbastecimentos < ActiveRecord::Migration[5.0]
       t.numeric :precototal
       t.string :obs
       t.references :veiculo, foreign_key: true
-      t.string :completou_flag
+      t.boolean :completou_flag
       t.references :combustivel, foreign_key: true
       t.references :formaspagamento, foreign_key: true
 

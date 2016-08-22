@@ -28,8 +28,8 @@ class AbastecimentosController < ApplicationController
 
     respond_to do |format|
       if @abastecimento.save
-        format.html { redirect_to @abastecimento, notice: 'Abastecimento was successfully created.' }
-        format.json { render :show, status: :created, location: @abastecimento }
+        format.html { redirect_to abastecimentos_url, notice: 'Abastecimento was successfully created.' }
+        format.json { head :no_content }
       else
         format.html { render :new }
         format.json { render json: @abastecimento.errors, status: :unprocessable_entity }
@@ -42,8 +42,8 @@ class AbastecimentosController < ApplicationController
   def update
     respond_to do |format|
       if @abastecimento.update(abastecimento_params)
-        format.html { redirect_to @abastecimento, notice: 'Abastecimento was successfully updated.' }
-        format.json { render :show, status: :ok, location: @abastecimento }
+        format.html { redirect_to abastecimentos_url, notice: 'Abastecimento was successfully updated.' }
+        format.json { head :no_content }
       else
         format.html { render :edit }
         format.json { render json: @abastecimento.errors, status: :unprocessable_entity }

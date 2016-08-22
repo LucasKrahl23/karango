@@ -28,8 +28,8 @@ class ImpostosController < ApplicationController
 
     respond_to do |format|
       if @imposto.save
-        format.html { redirect_to @imposto, notice: 'Imposto was successfully created.' }
-        format.json { render :show, status: :created, location: @imposto }
+        format.html { redirect_to impostos_url, notice: 'Imposto was successfully created.' }
+        format.json { head :no_content }
       else
         format.html { render :new }
         format.json { render json: @imposto.errors, status: :unprocessable_entity }
@@ -42,8 +42,8 @@ class ImpostosController < ApplicationController
   def update
     respond_to do |format|
       if @imposto.update(imposto_params)
-        format.html { redirect_to @imposto, notice: 'Imposto was successfully updated.' }
-        format.json { render :show, status: :ok, location: @imposto }
+        format.html { redirect_to impostos_url, notice: 'Imposto was successfully updated.' }
+        format.json { head :no_content }
       else
         format.html { render :edit }
         format.json { render json: @imposto.errors, status: :unprocessable_entity }

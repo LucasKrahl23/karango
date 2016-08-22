@@ -1,6 +1,14 @@
-<h1>Editing Abastecimento</h1>
-
-<%= render 'form', abastecimento: @abastecimento %>
-
-<%= link_to 'Show', @abastecimento %> |
-<%= link_to 'Back', abastecimentos_path %>
+<div class="row">
+  <div class="col-md-12">
+    <div class="panel">
+      <div class="panel-heading">
+        <div class="panel-title">
+          <h4>Cadastro de Abastecimentos</h4>
+      </div>
+      </div><!--.panel-heading-->
+      <div class="panel-body">
+		<%= render 'form', abastecimento: @abastecimento %>
+      </div><!--.panel-body-->
+    </div><!--.panel-->
+  </div><!--.col-md-12-->
+</div>

@@ -26,20 +26,14 @@ var FormsTools = {
 
 	inputMaskDecimal: function () {
 		$('.inputmask-decimal').inputmask('decimal', {
-			radixPoint: ',',
-			autoGroup: true,
-			groupSeparator: '.',
-			groupSize: 3,
+			radixPoint: '.',
 			rightAlign: false
 		});
 	},
 
 	inputMaskDecimalRight: function () {
 		$('.inputmask-decimal-right').inputmask('decimal', {
-			radixPoint: ',',
-			autoGroup: true,
-			groupSeparator: '.',
-			groupSize: 3
+			radixPoint: '.',
 		});
 	},
 

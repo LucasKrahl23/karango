@@ -28,8 +28,8 @@ class ManutencoesController < ApplicationController
 
     respond_to do |format|
       if @manutencao.save
-        format.html { redirect_to @manutencao, notice: 'Manutencao was successfully created.' }
-        format.json { render :show, status: :created, location: @manutencao }
+        format.html { redirect_to manutencoes_url, notice: 'Manutencao was successfully created.' }
+        format.json { head :no_content }
       else
         format.html { render :new }
         format.json { render json: @manutencao.errors, status: :unprocessable_entity }
@@ -42,8 +42,8 @@ class ManutencoesController < ApplicationController
   def update
     respond_to do |format|
       if @manutencao.update(manutencao_params)
-        format.html { redirect_to @manutencao, notice: 'Manutencao was successfully updated.' }
-        format.json { render :show, status: :ok, location: @manutencao }
+        format.html { redirect_to manutencoes_url, notice: 'Manutencao was successfully updated.' }
+        format.json { head :no_content }
       else
         format.html { render :edit }
         format.json { render json: @manutencao.errors, status: :unprocessable_entity }

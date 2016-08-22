@@ -1,43 +1,83 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Abastecimentos</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Abastecimento dt</th>
-      <th>Odometro</th>
-      <th>Precolitro</th>
-      <th>Precototal</th>
-      <th>Obs</th>
-      <th>Veiculo</th>
-      <th>Completou flag</th>
-      <th>Combustivel</th>
-      <th>Formaspagamento</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @abastecimentos.each do |abastecimento| %>
-      <tr>
-        <td><%= abastecimento.abastecimento_dt %></td>
-        <td><%= abastecimento.odometro %></td>
-        <td><%= abastecimento.precolitro %></td>
-        <td><%= abastecimento.precototal %></td>
-        <td><%= abastecimento.obs %></td>
-        <td><%= abastecimento.veiculo %></td>
-        <td><%= abastecimento.completou_flag %></td>
-        <td><%= abastecimento.combustivel %></td>
-        <td><%= abastecimento.formaspagamento %></td>
-        <td><%= link_to 'Show', abastecimento %></td>
-        <td><%= link_to 'Edit', edit_abastecimento_path(abastecimento) %></td>
-        <td><%= link_to 'Destroy', abastecimento, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Abastecimento', new_abastecimento_path %>
+<div class="row">
+  <div class="col-md-12">
+    <div class="panel">
+      <div class="panel-heading">
+        <div class="panel-title">
+          <h4>Cadastro de Abastecimentos</h4>
+            <a class="btn btn-floating btn-teal btn-light-green pull-right" href="<%=new_abastecimento_path %>">
+              <i class="ion-android-add"></i>
+            </a>
+        </div>
+        
+      </div><!--.panel-heading-->
+      <div class="panel-body">
+        <p id="notice"><%= notice %></p>
+        <div class="unseen">
+          <table class="table table-bordered table-striped table-condensed">
+            <thead>
+              <tr>
+                <th>Abastecimento dt</th>
+                <th>Odometro</th>
+                <th>Precolitro</th>
+                <th>Precototal</th>
+                <th>Veiculo</th>
+                <th>Completou flag</th>
+                <th>Combustivel</th>
+                <th style="width:120px">Ações</th>
+            </thead>
+            <tbody>
+              <% @abastecimentos.each do |abastecimento| %>
+                <tr>
+                  <td><%= abastecimento.abastecimento_dt %></td>
+                  <td><%= abastecimento.odometro %></td>
+                  <td><%= abastecimento.precolitro %></td>
+                  <td><%= abastecimento.precototal %></td>
+                  <td><%= Veiculo.find(abastecimento.veiculo).nome %></td>
+                  <td align="center">
+                    <% if abastecimento.completou_flag %>
+                      <div class="checkboxer">
+                        <input type="checkbox" id="completou_<%= abastecimento.id %>" checked disabled>
+                        <label for="completou_<%= abastecimento.id %>"></label>
+                      </div>
+                    <% else %>
+                      <div class="checkboxer">
+                        <input type="checkbox" id="completou_<%= abastecimento.id %>" disabled>
+                        <label for="completou_<%= abastecimento.id %>"></label>
+                      </div>
+                    <% end %>
+                  </td>
+                  <td><%= Combustivel.find(abastecimento.combustivel).nome %></td>
+                  
+                  <td align="center">
+                    <a href="<%= edit_abastecimento_path(abastecimento) %>" class="btn btn-default btn-ripple" title="Editar registro">
+                      <span class="ion-edit">
+                    </a>
+                    <a class="btn btn-default btn-red btn-ripple" title="Remover registro" data-toggle="modal" data-target="#deleteModal_<%= abastecimento.id %>">
+                      <span class="ion-android-delete"></span>
+                    </a>
+                  </td>
+                </tr>
+                <div class="modal scale fade" id="deleteModal_<%= abastecimento.id %>" tabindex="-1" role="dialog" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h4 class="modal-title">Karango WepApp</h4>
+                      </div>
+                      <div class="modal-body">
+                        Deseja realmente excluir este registro?
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-flat btn-ripple" data-dismiss="modal">Não</button>
+                        <%= button_to "Sim", abastecimento, :method=>:delete, class: 'btn btn-flat btn-danger btn-ripple' %>
+                      </div>
+                    </div><!--.modal-content-->
+                  </div><!--.modal-dialog-->
+                </div><!--.modal-->
+              <% end %>
+            </tbody>
+          </table>
+        </div><!--.unseen-->
+      </div><!--.panel-body-->
+    </div><!--.panel-->
+  </div><!--.col-md-12-->
+</div>
