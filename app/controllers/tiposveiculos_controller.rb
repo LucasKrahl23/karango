@@ -23,7 +23,7 @@ class TiposveiculosController < ApplicationController
 
     respond_to do |format|
       if @tiposveiculo.save
-        format.html { redirect_to tiposveiculos_url, notice: 'Tiposveiculo was successfully created.' }
+        format.html { redirect_to tiposveiculos_url, notice: 'Tipo de Veículo criado com sucesso.' }
         format.json { head :no_content }
       else
         format.html { render :new }
@@ -37,7 +37,7 @@ class TiposveiculosController < ApplicationController
   def update
     respond_to do |format|
       if @tiposveiculo.update(tiposveiculo_params)
-        format.html { redirect_to tiposveiculos_url, notice: 'Tiposveiculo was successfully updated.' }
+        format.html { redirect_to tiposveiculos_url, notice: 'Tipo de Veículo editado com sucesso.' }
         format.json { head :no_content }
       else
         format.html { render :edit }
@@ -51,7 +51,7 @@ class TiposveiculosController < ApplicationController
   def destroy
     @tiposveiculo.destroy
     respond_to do |format|
-      format.html { redirect_to tiposveiculos_url, notice: 'Tiposveiculo was successfully destroyed.' }
+      format.html { redirect_to tiposveiculos_url, notice: 'Tipo de Veículo excluído com sucesso.' }
       format.json { head :no_content }
     end
   end

@@ -23,7 +23,7 @@ class FormaspagamentosController < ApplicationController
 
     respond_to do |format|
       if @formaspagamento.save
-        format.html { redirect_to formaspagamentos_url, notice: 'Formaspagamento was successfully created.' }
+        format.html { redirect_to formaspagamentos_url, notice: 'Forma de Pagamento criada com sucesso.' }
         format.json { head :no_content }
       else
         format.html { render :new }
@@ -37,7 +37,7 @@ class FormaspagamentosController < ApplicationController
   def update
     respond_to do |format|
       if @formaspagamento.update(formaspagamento_params)
-        format.html { redirect_to formaspagamentos_url, notice: 'Formaspagamento was successfully updated.' }
+        format.html { redirect_to formaspagamentos_url, notice: 'Forma de Pagamento editada com sucesso.' }
         format.json { head :no_content }
       else
         format.html { render :edit }
@@ -51,7 +51,7 @@ class FormaspagamentosController < ApplicationController
   def destroy
     @formaspagamento.destroy
     respond_to do |format|
-      format.html { redirect_to formaspagamentos_url, notice: 'Formaspagamento was successfully destroyed.' }
+      format.html { redirect_to formaspagamentos_url, notice: 'Forma de Pagamento excluída com sucesso.' }
       format.json { head :no_content }
     end
   end

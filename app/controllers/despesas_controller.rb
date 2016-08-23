@@ -23,7 +23,7 @@ class DespesasController < ApplicationController
 
     respond_to do |format|
       if @despesa.save
-        format.html { redirect_to despesas_url, notice: 'Despesa was successfully created.' }
+        format.html { redirect_to despesas_url, notice: 'Despesa criada com sucesso.' }
         format.json { head :no_content }
       else
         format.html { render :new }
@@ -37,7 +37,7 @@ class DespesasController < ApplicationController
   def update
     respond_to do |format|
       if @despesa.update(despesa_params)
-        format.html { redirect_to despesas_url, notice: 'Despesa was successfully updated.' }
+        format.html { redirect_to despesas_url, notice: 'Despesa editada com sucesso.' }
         format.json { head :no_content }
       else
         format.html { render :edit }
@@ -51,7 +51,7 @@ class DespesasController < ApplicationController
   def destroy
     @despesa.destroy
     respond_to do |format|
-      format.html { redirect_to despesas_url, notice: 'Despesa was successfully destroyed.' }
+      format.html { redirect_to despesas_url, notice: 'Despesa excluída com sucesso.' }
       format.json { head :no_content }
     end
   end

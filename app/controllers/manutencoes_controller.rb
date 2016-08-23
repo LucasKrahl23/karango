@@ -23,7 +23,7 @@ class ManutencoesController < ApplicationController
 
     respond_to do |format|
       if @manutencao.save
-        format.html { redirect_to manutencoes_url, notice: 'Manutencao was successfully created.' }
+        format.html { redirect_to manutencoes_url, notice: 'Manutenção criada com sucesso.' }
         format.json { head :no_content }
       else
         format.html { render :new }
@@ -37,7 +37,7 @@ class ManutencoesController < ApplicationController
   def update
     respond_to do |format|
       if @manutencao.update(manutencao_params)
-        format.html { redirect_to manutencoes_url, notice: 'Manutencao was successfully updated.' }
+        format.html { redirect_to manutencoes_url, notice: 'Manutenção editada com sucesso.' }
         format.json { head :no_content }
       else
         format.html { render :edit }
@@ -51,7 +51,7 @@ class ManutencoesController < ApplicationController
   def destroy
     @manutencao.destroy
     respond_to do |format|
-      format.html { redirect_to manutencoes_url, notice: 'Manutencao was successfully destroyed.' }
+      format.html { redirect_to manutencoes_url, notice: 'Manutenção excluída com sucesso.' }
       format.json { head :no_content }
     end
   end

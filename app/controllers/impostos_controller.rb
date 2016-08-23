@@ -23,7 +23,7 @@ class ImpostosController < ApplicationController
 
     respond_to do |format|
       if @imposto.save
-        format.html { redirect_to impostos_url, notice: 'Imposto was successfully created.' }
+        format.html { redirect_to impostos_url, notice: 'Imposto criado com sucesso.' }
         format.json { head :no_content }
       else
         format.html { render :new }
@@ -37,7 +37,7 @@ class ImpostosController < ApplicationController
   def update
     respond_to do |format|
       if @imposto.update(imposto_params)
-        format.html { redirect_to impostos_url, notice: 'Imposto was successfully updated.' }
+        format.html { redirect_to impostos_url, notice: 'Imposto editado com sucesso.' }
         format.json { head :no_content }
       else
         format.html { render :edit }
@@ -51,7 +51,7 @@ class ImpostosController < ApplicationController
   def destroy
     @imposto.destroy
     respond_to do |format|
-      format.html { redirect_to impostos_url, notice: 'Imposto was successfully destroyed.' }
+      format.html { redirect_to impostos_url, notice: 'Imposto excluído com sucesso.' }
       format.json { head :no_content }
     end
   end

@@ -23,7 +23,7 @@ class CombustiveisController < ApplicationController
 
     respond_to do |format|
       if @combustivel.save
-        format.html { redirect_to combustiveis_url, notice: 'Combustivel was successfully created.' }
+        format.html { redirect_to combustiveis_url, notice: 'Combustível criado com sucesso.' }
         format.json { head :no_content }
       else
         format.html { render :new }
@@ -37,7 +37,7 @@ class CombustiveisController < ApplicationController
   def update
     respond_to do |format|
       if @combustivel.update(combustivel_params)
-        format.html { redirect_to combustiveis_url, notice: 'Combustivel was successfully updated.' }
+        format.html { redirect_to combustiveis_url, notice: 'Combustível editado com sucesso.' }
         format.json { head :no_content }
       else
         format.html { render :edit }
@@ -51,7 +51,7 @@ class CombustiveisController < ApplicationController
   def destroy
     @combustivel.destroy
     respond_to do |format|
-      format.html { redirect_to combustiveis_url, notice: 'Combustivel was successfully destroyed.' }
+      format.html { redirect_to combustiveis_url, notice: 'Combustível excluído com sucesso.' }
       format.json { head :no_content }
     end
   end
