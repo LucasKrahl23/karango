@@ -182,24 +182,9 @@ var Pleasure = {
 						$(ajax_selector).html(data);
 					}
 
-					// Handle notification types
-					if(ajax_notify === 'toastr')
-						toastr.success('The '+ajax_target+' content successfully loaded.');
-					if(ajax_notify_sound)
-						ion.sound.play(ajax_notify_sound);
-
 				}).fail(function(jqXHR, textStatus) {
 					par.find('.refresh-container').fadeOut(500, function() { par.find('.refresh-container').remove(); });
 					$this.removeClass('fa-spin');
-
-					// Handle notification types
-					if(ajax_notify === 'toastr') {
-						toastr.error('There was a problem while loading the '+ajax_target+' content.');
-					} else {
-						par.find('.panel-body').prepend('<div class="alert alert-danger alert-block" role="alert">There was a problem while loading the '+ajax_target+' content.</div>');
-					}
-					if(ajax_notify_sound)
-						ion.sound.play(ajax_notify_sound);
 				});
 			}
 		});
@@ -273,119 +258,7 @@ var Pleasure = {
 		});
 	},
 
-	handleToastrSettings: function (closeButton, positionClass, sticky, type, closeOthers, title, notification) {
-
-		closeButton = (closeButton !=false) ? true : false;
-		positionClass = (!positionClass) ? 'toast-top-right' : positionClass;
-		sticky = (sticky !=true) ? timeOut = 5000 : timeOut = 0;
-
-		if(closeOthers == true)
-			toastr.remove();
-		if(!title)
-			title = '';
-		if(!notification){
-			notification = 'Sample Notification';
-		}
-
-		toastr.options = {
-			'closeButton': closeButton,
-			'positionClass': positionClass,
-			'timeOut': timeOut,
-			'closeHtml': '<button><i class="ion-android-close"></i></button>',
-			'hideMethod': 'slideUp',
-			'hideDuration': '500'
-		};
-
-		if(type === 'success') {
-			toastr.success(notification, title);
-		} else if(type === 'warning') {
-			toastr.warning(notification, title);
-		} else if(type === 'error') {
-			toastr.error(notification, title);
-		} else {
-			toastr.info(notification, title);
-		}
-
-	},
-
-	listenToastrNotification: function () {
-		$('body').on('click', '.toastr-notify', function () {
-			var $this = $(this),
-					closeButton = $this.data('toastr-close-button'),
-					positionClass = $this.data('toastr-position'),
-					sticky = $this.data('toastr-sticky'),
-					type = $this.data('toastr-type'),
-					closeOthers = $this.data('toastr-close-others'),
-					title = $this.data('toastr-title')
-					notification = $this.data('toastr-notification');
-			Pleasure.handleToastrSettings(closeButton, positionClass, sticky, type, closeOthers, title, notification);
-		});
-	},
-
-	flashErrorToastrNotification: function () {
-		$(document).ready(function(){
-			var x = document.getElementById("notificacao");
-			closeButton = x.getAttribute('toastr-close-button');
-			positionClass = x.getAttribute('toastr-position');
-			sticky = x.getAttribute('toastr-sticky');
-			type = x.getAttribute('toastr-type');
-			closeOthers = x.getAttribute('toastr-close-others');
-			title = x.getAttribute('toastr-title');
-			notification = x.getAttribute('toastr-notification');
-		Pleasure.handleToastrSettings(closeButton, positionClass, sticky, type, closeOthers, title, notification);
-		});
-	},
-
-	flashErrorClass: function () {
-		$(document).ready(function(){
-			var x = document.getElementsByClassName("notificacao");
-			for(var i=0; i<x.length; i++) {
-				closeButton = x[i].getAttribute('toastr-close-button');
-				positionClass = x[i].getAttribute('toastr-position');
-				sticky = x[i].getAttribute('toastr-sticky');
-				type = x[i].getAttribute('toastr-type');
-				closeOthers = x[i].getAttribute('toastr-close-others');
-				title = x[i].getAttribute('toastr-title');
-				notification = x[i].getAttribute('toastr-notification');
-				Pleasure.handleToastrSettings(closeButton, positionClass, sticky, type, closeOthers, title, notification);
-			}
-			
-		});
-	},
 	
-	apresentaToastrNotification: function (type, title, notification) {
-		closeButton = true;
-		positionClass = 'toast-top-right';
-		timeOut = 5000;
-
-		
-		toastr.remove();
-		if(!title)
-			title = '';
-		if(!notification){
-			notification = 'Sample Notification';
-		}
-
-		toastr.options = {
-			'closeButton': closeButton,
-			'positionClass': positionClass,
-			'timeOut': timeOut,
-			'closeHtml': '<button><i class="ion-android-close"></i></button>',
-			'hideMethod': 'slideUp',
-			'hideDuration': '500'
-		};
-
-		if(type === 'success') {
-			toastr.success(notification, title);
-		} else if(type === 'warning') {
-			toastr.warning(notification, title);
-		} else if(type === 'error') {
-			toastr.error(notification, title);
-		} else {
-			toastr.info(notification, title);
-		}
-	},
-
 	handleFastClick: function () {
 		window.addEventListener('load', function () {
 			FastClick.attach(document.body);
@@ -604,9 +477,6 @@ var Pleasure = {
 		this.handleTooltipsAndPopovers();
 		this.handleTabs();
 		this.handleAccordionAndToggles();
-		this.listenToastrNotification();
-		this.flashErrorToastrNotification();
-		this.flashErrorClass();
 		this.handleFastClick();
 
 		// Form Elements

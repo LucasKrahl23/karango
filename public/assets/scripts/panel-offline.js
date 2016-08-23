@@ -12,16 +12,6 @@ var PanelOffline = {
 		setInterval(function () {
 			Offline.check(); // Check the current status of the connection.
 		}, 3000);
-
-		// A connection test has failed, fired even if the connection was already down
-		Offline.on('down', function () {
-			toastr.error('A connection test has failed, fired even if the connection was already down');
-		});
-
-		// A connection test has succeeded, fired even if the connection was already up
-		Offline.on('up', function () {
-			toastr.success('A connection test has succeeded, fired even if the connection was already up');
-		});
 	},
 
 	init: function () {
