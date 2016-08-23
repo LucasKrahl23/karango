@@ -2267,7 +2267,7 @@ caption {
   text-align: left;
 }
 th {
-  text-align: left;
+  /*text-align: left;*/
 }
 .table {
   width: 100%;
