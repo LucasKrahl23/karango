@@ -58,7 +58,15 @@
                     </ol>
                 </div>
             </div><!--.row-->
-        </div><!--.page-header-->
+        </div><!--.page-header-->  
+        <script src="/assets/js/jquery.js"></script>
+        <% if notice != nil %>
+            <script type="text/javascript">
+                $(function(){
+                    toastr["success"]('<%= notice %>', "Karango WepApp")
+                });
+            </script>
+        <% end %>      
       <%= yield %>
     </div><!--.content-->
 
@@ -71,7 +79,7 @@
                     <a href="/">Dashboard</a>
                 </li>
                 <li>
-                    <a href="/veiculos">Meus Veiculos</a>
+                    <a href="/veiculos">Meus Veículos</a>
                 </li>
                 <li>
                     <a href="/abastecimentos">Abastecimentos</a>
