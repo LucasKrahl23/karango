@@ -1,17 +1,12 @@
 class AbastecimentosController < ApplicationController
-  before_action :set_abastecimento, only: [:show, :edit, :update, :destroy]
+  before_action :set_abastecimento, only: [:edit, :update, :destroy]
 
   # GET /abastecimentos
   # GET /abastecimentos.json
   def index
     @abastecimentos = Abastecimento.all
   end
-
-  # GET /abastecimentos/1
-  # GET /abastecimentos/1.json
-  def show
-  end
-
+  
   # GET /abastecimentos/new
   def new
     @abastecimento = Abastecimento.new

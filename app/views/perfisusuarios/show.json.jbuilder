@@ -1,1 +1,0 @@
-json.partial! "perfisusuarios/perfisusuario", perfisusuario: @perfisusuario

@@ -1,15 +1,10 @@
 class TiposveiculosController < ApplicationController
-  before_action :set_tiposveiculo, only: [:show, :edit, :update, :destroy]
+  before_action :set_tiposveiculo, only: [:edit, :update, :destroy]
 
   # GET /tiposveiculos
   # GET /tiposveiculos.json
   def index
     @tiposveiculos = Tiposveiculo.all
-  end
-
-  # GET /tiposveiculos/1
-  # GET /tiposveiculos/1.json
-  def show
   end
 
   # GET /tiposveiculos/new

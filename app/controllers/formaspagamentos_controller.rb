@@ -1,15 +1,10 @@
 class FormaspagamentosController < ApplicationController
-  before_action :set_formaspagamento, only: [:show, :edit, :update, :destroy]
+  before_action :set_formaspagamento, only: [:edit, :update, :destroy]
 
   # GET /formaspagamentos
   # GET /formaspagamentos.json
   def index
     @formaspagamentos = Formaspagamento.all
-  end
-
-  # GET /formaspagamentos/1
-  # GET /formaspagamentos/1.json
-  def show
   end
 
   # GET /formaspagamentos/new

@@ -1,15 +1,10 @@
 class ManutencoesController < ApplicationController
-  before_action :set_manutencao, only: [:show, :edit, :update, :destroy]
+  before_action :set_manutencao, only: [:edit, :update, :destroy]
 
   # GET /manutencoes
   # GET /manutencoes.json
   def index
     @manutencoes = Manutencao.all
-  end
-
-  # GET /manutencoes/1
-  # GET /manutencoes/1.json
-  def show
   end
 
   # GET /manutencoes/new

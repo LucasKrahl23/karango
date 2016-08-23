@@ -1,15 +1,10 @@
 class MarcasController < ApplicationController
-  before_action :set_marca, only: [:show, :edit, :update, :destroy]
+  before_action :set_marca, only: [:edit, :update, :destroy]
 
   # GET /marcas
   # GET /marcas.json
   def index
     @marcas = Marca.all
-  end
-
-  # GET /marcas/1
-  # GET /marcas/1.json
-  def show
   end
 
   # GET /marcas/new

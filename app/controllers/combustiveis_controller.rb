@@ -1,15 +1,10 @@
 class CombustiveisController < ApplicationController
-  before_action :set_combustivel, only: [:show, :edit, :update, :destroy]
+  before_action :set_combustivel, only: [:edit, :update, :destroy]
 
   # GET /combustiveis
   # GET /combustiveis.json
   def index
     @combustiveis = Combustivel.all
-  end
-
-  # GET /combustiveis/1
-  # GET /combustiveis/1.json
-  def show
   end
 
   # GET /combustiveis/new

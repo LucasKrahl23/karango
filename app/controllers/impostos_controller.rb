@@ -1,15 +1,10 @@
 class ImpostosController < ApplicationController
-  before_action :set_imposto, only: [:show, :edit, :update, :destroy]
+  before_action :set_imposto, only: [:edit, :update, :destroy]
 
   # GET /impostos
   # GET /impostos.json
   def index
     @impostos = Imposto.all
-  end
-
-  # GET /impostos/1
-  # GET /impostos/1.json
-  def show
   end
 
   # GET /impostos/new

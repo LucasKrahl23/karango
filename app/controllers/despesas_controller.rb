@@ -1,15 +1,10 @@
 class DespesasController < ApplicationController
-  before_action :set_despesa, only: [:show, :edit, :update, :destroy]
+  before_action :set_despesa, only: [:edit, :update, :destroy]
 
   # GET /despesas
   # GET /despesas.json
   def index
     @despesas = Despesa.all
-  end
-
-  # GET /despesas/1
-  # GET /despesas/1.json
-  def show
   end
 
   # GET /despesas/new

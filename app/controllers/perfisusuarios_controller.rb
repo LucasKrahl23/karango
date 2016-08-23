@@ -1,17 +1,12 @@
 class PerfisusuariosController < ApplicationController
-  before_action :set_perfisusuario, only: [:show, :edit, :update, :destroy]
+  before_action :set_perfisusuario, only: [:edit, :update, :destroy]
 
   # GET /perfisusuarios
   # GET /perfisusuarios.json
   def index
     @perfisusuarios = Perfisusuario.all
   end
-
-  # GET /perfisusuarios/1
-  # GET /perfisusuarios/1.json
-  def show
-  end
-
+  
   # GET /perfisusuarios/new
   def new
     @perfisusuario = Perfisusuario.new
