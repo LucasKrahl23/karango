@@ -12,30 +12,25 @@
   <% end %>
 
   <div class="row example-row">
-    <div class="col-md-3">Data Abastecimento:</div> 
+    <div class="col-md-3">Veículo:</div> 
       <div class="col-md-9">
-       <div class="control-group">
-          <div class="controls">
-            <div class="input-group">
-            <span class="input-group-addon"><i class="ion-android-calendar"></i></span>
-            <div class="inputer">
-              <div class="input-wrapper">
-              <%= f.text_field :abastecimento_dt, class: 'form-control bootstrap-daterangepicker-basic valid active' %>
-              </div>
-            </div>
-          </div>
-        </div>
-       </div>
+        <%= f.collection_select(:veiculo_id, Veiculo.all, :id, :nome, {prompt: "Selecione"}, {class: 'selectpicker'}) %>
+      </div> 
+  </div>
+  
+  <div class="row example-row">
+    <div class="col-md-3">Combustível:</div> 
+      <div class="col-md-9">
+        <%= f.collection_select(:combustivel_id, Combustivel.all, :id, :nome, {prompt: "Selecione"}, {class: 'selectpicker'}) %>
       </div> 
   </div>
 
   <div class="row example-row">
-    <div class="col-md-3">Odometro:</div> 
+    <div class="col-md-3">Completou:</div> 
       <div class="col-md-9">
-        <div class="inputer">
-            <div class="input-wrapper">
-              <%= f.number_field :odometro, class: 'form-control payment-restrict valid' %>
-            </div>
+        <div class="switcher">
+            <%= f.check_box :completou_flag, hidden: 'hidden' %>
+            <label for="abastecimento_completou_flag"></label>
           </div>
       </div> 
   </div>
@@ -63,37 +58,31 @@
   </div>
 
   <div class="row example-row">
-    <div class="col-md-3">Observações:</div> 
+    <div class="col-md-3">Odometro:</div> 
       <div class="col-md-9">
         <div class="inputer">
             <div class="input-wrapper">
-              <%= f.text_field :obs, class: 'form-control' %>
+              <%= f.number_field :odometro, class: 'form-control payment-restrict valid' %>
             </div>
           </div>
       </div> 
   </div>
-
+  
   <div class="row example-row">
-    <div class="col-md-3">Veículo:</div> 
+    <div class="col-md-3">Data Abastecimento:</div> 
       <div class="col-md-9">
-        <%= f.collection_select(:veiculo_id, Veiculo.all, :id, :nome, {prompt: "Selecione"}, {class: 'selectpicker'}) %>
-      </div> 
-  </div>
-
-  <div class="row example-row">
-    <div class="col-md-3">Completou:</div> 
-      <div class="col-md-9">
-        <div class="switcher">
-            <%= f.check_box :completou_flag, hidden: 'hidden' %>
-            <label for="abastecimento_completou_flag"></label>
+       <div class="control-group">
+          <div class="controls">
+            <div class="input-group">
+            <span class="input-group-addon"><i class="ion-android-calendar"></i></span>
+            <div class="inputer">
+              <div class="input-wrapper">
+              <%= f.text_field :abastecimento_dt, class: 'form-control bootstrap-daterangepicker-basic valid active' %>
+              </div>
+            </div>
           </div>
-      </div> 
-  </div>
-
-  <div class="row example-row">
-    <div class="col-md-3">Combustível:</div> 
-      <div class="col-md-9">
-        <%= f.collection_select(:combustivel_id, Combustivel.all, :id, :nome, {prompt: "Selecione"}, {class: 'selectpicker'}) %>
+        </div>
+       </div>
       </div> 
   </div>
 
@@ -104,7 +93,17 @@
       </div> 
   </div>
 
-  <div class="form-buttons">
+  <div class="row example-row">
+    <div class="col-md-3">Observações:</div> 
+      <div class="col-md-9">
+        <div class="inputer">
+            <div class="input-wrapper">
+              <%= f.text_field :obs, class: 'form-control' %>
+            </div>
+          </div>
+      </div> 
+  </div>
+<div class="form-buttons">
     <div class="row">
       <div class="col-md-offset-3 col-md-9">
         <%= f.submit 'Salvar', :class => 'btn btn-blue btn-ripple' %>
