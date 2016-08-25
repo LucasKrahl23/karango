@@ -5,7 +5,6 @@ Rails.application.routes.draw do
   resources :impostos
   resources :despesas
   resources :veiculos
-  resources :usuarios
   resources :formaspagamentos
   resources :tiposveiculos
   resources :combustiveis
