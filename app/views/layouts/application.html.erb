@@ -30,6 +30,16 @@
 
         <div class="nav-bar-border"></div><!--.nav-bar-border-->
 
+        <div class="nav-user">
+            <div class="user">
+                <img src="/assets/images/faces/1.jpg" alt="">
+                <span class="badge">3</span>
+            </div> 
+            <div class="cross">
+                <span class="line"></span>
+                <span class="line"></span>
+            </div> 
+        </div> 
         <!-- BEGIN OVERLAY HELPERS -->
         <div class="overlay">
             <div class="starting-point">
@@ -115,6 +125,15 @@
             </ul>
         </div><!--.menu-layer-->
         <!-- END OF MENU LAYER -->
+
+        <!-- BEGIN USER LAYER -->
+        <div class="user-layer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+                <li class="active"><%= button_to "Sim", destroy_usuario_session_path, :method=>:delete %></li>
+            </ul>
+
+        </div><!--.user-layer-->
+        <!-- END OF USER LAYER -->
     </div><!--.layer-container-->
     <!--SCRIPTS-->
     <script src="/assets/js/global-vendors.js"></script>
