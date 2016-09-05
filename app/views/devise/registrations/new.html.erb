@@ -1,0 +1,72 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="panel">
+      <div class="panel-heading">
+        <div class="panel-title">
+          <h4>Cadastro de Veículos</h4>
+      </div>
+      </div><!--.panel-heading-->
+      <div class="panel-body">
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name), :html => { :class => 'form-horizontal' }) do |f| %>
+            <%= devise_error_messages! %>
+
+            <div class="row example-row">
+              <div class="col-md-3">Nome:</div> 
+                <div class="col-md-9">
+                  <div class="inputer">
+                      <div class="input-wrapper">
+                        <%= f.text_field :nome, autofocus: true, class: 'form-control' %>
+                      </div>
+                    </div>
+                </div> 
+            </div>
+
+            <div class="row example-row">
+              <div class="col-md-3">Email:</div> 
+                <div class="col-md-9">
+                  <div class="inputer">
+                      <div class="input-wrapper">
+                        <%= f.text_field :email, class: 'form-control inputmask inputmask-email' %>
+                      </div>
+                    </div>
+                </div> 
+            </div>
+
+            <div class="row example-row">
+              <div class="col-md-3">Senha:</div> 
+                <div class="col-md-9">
+                  <div class="inputer">
+                      <div class="input-wrapper">
+                      <% if @minimum_password_length %>
+                      <em>(<%= @minimum_password_length %> characters minimum)</em>
+                      <% end %><br />
+                        <%= f.password_field :password, autocomplete: "off", type: 'password', class: 'form-control' %>
+                      </div>
+                    </div>
+                </div> 
+            </div>
+
+            <div class="row example-row">
+              <div class="col-md-3">Confirme a Senha:</div> 
+                <div class="col-md-9">
+                  <div class="inputer">
+                      <div class="input-wrapper">
+                        <%= f.password_field :password_confirmation, autocomplete: "off", type: 'password', class: 'form-control' %>
+                      </div>
+                    </div>
+                </div> 
+            </div>
+
+            <div class="form-buttons">
+              <div class="row">
+                <div class="col-md-offset-3 col-md-9">
+                  <%= f.submit 'Sign Up', :class => 'btn btn-blue btn-ripple' %>
+                  <input type="reset" value="Limpar Campos" class="btn btn-flat btn-danger btn-ripple">
+                </div>
+              </div>
+            </div>
+          <% end %>
+      </div><!--.panel-body-->
+    </div><!--.panel-->
+  </div><!--.col-md-12-->
+</div>
