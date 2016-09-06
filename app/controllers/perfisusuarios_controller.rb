@@ -1,4 +1,5 @@
 class PerfisusuariosController < ApplicationController
+  before_action :authenticate_usuario!
   before_action :set_perfisusuario, only: [:edit, :update, :destroy]
 
   # GET /perfisusuarios

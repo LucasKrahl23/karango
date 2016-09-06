@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
+  devise_for :usuarios, :path => '', :path_names => {:sign_in => 'login', :sign_out => 'logout'}
+  resources :calcflex
   resources :marcas
   resources :abastecimentos
   resources :manutencoes
   resources :impostos
   resources :despesas
   resources :veiculos
-  resources :usuarios
   resources :formaspagamentos
   resources :tiposveiculos
   resources :combustiveis
