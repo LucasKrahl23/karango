@@ -1,4 +1,5 @@
 class TiposveiculosController < ApplicationController
+  before_action :authenticate_usuario!
   before_action :set_tiposveiculo, only: [:edit, :update, :destroy]
 
   # GET /tiposveiculos

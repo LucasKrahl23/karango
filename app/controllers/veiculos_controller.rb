@@ -1,4 +1,5 @@
 class VeiculosController < ApplicationController
+  before_action :authenticate_usuario!
   before_action :set_veiculo, only: [:edit, :update, :destroy]
 
   # GET /veiculos

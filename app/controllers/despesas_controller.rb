@@ -1,4 +1,5 @@
 class DespesasController < ApplicationController
+  before_action :authenticate_usuario!
   before_action :set_despesa, only: [:edit, :update, :destroy]
 
   # GET /despesas

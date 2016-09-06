@@ -1,4 +1,5 @@
 class CombustiveisController < ApplicationController
+  before_action :authenticate_usuario!
   before_action :set_combustivel, only: [:edit, :update, :destroy]
 
   # GET /combustiveis

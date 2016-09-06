@@ -1,4 +1,5 @@
 class ImpostosController < ApplicationController
+  before_action :authenticate_usuario!
   before_action :set_imposto, only: [:edit, :update, :destroy]
 
   # GET /impostos
