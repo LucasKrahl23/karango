@@ -29,7 +29,6 @@
         </div><!--.nav-menu-->
 
         <div class="nav-bar-border"></div><!--.nav-bar-border-->
-        <% if usuario_signed_in? %>
             <div class="nav-user">
                 <div class="user">
                     <img src="/assets/images/faces/tolga-ergin.jpg" alt="Login">
@@ -39,7 +38,6 @@
                     <span class="line"></span>
                 </div> 
             </div> 
-        <% end %>
         <!-- BEGIN OVERLAY HELPERS -->
         <div class="overlay">
             <div class="starting-point">
@@ -109,9 +107,7 @@
                 <li>
                     <a href="/veiculos">Relatórios</a>
                 </li>
-                <li>
-                    <a href="/usuarios">Usuários</a>
-                </li>
+                <% if current_usuario.perfisusuario_id == 1 %>
                 <li>
                     <a href="javascript:;">Cadastros Admin</a>
                     <ul class="child-menu">
@@ -122,10 +118,10 @@
                         <li><a href="/tiposveiculos">Tipo de Veículos</a></li>
                     </ul>
                 </li>
+                <% end %>
             </ul>
         </div><!--.menu-layer-->
         <!-- END OF MENU LAYER -->
-        <% if usuario_signed_in? %>
         <!-- BEGIN USER LAYER -->
         <div class="user-layer">
             <ul class="nav nav-tabs nav-justified" role="tablist">
@@ -154,7 +150,6 @@
             </div><!--.row-->
         </div><!--.user-layer-->
         <!-- END OF USER LAYER -->
-        <% end %>
     </div><!--.layer-container-->
     <!--SCRIPTS-->
     <script src="/assets/js/global-vendors.js"></script>
