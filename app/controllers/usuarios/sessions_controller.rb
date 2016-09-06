@@ -5,7 +5,7 @@ class Usuarios::SessionsController < Devise::SessionsController
    def new
      super
      respond_to do |format|
-      format.html { redirect_to veiculos_url, notice: 'Logado com sucesso.' }
+      format.html { redirect_to root_path, notice: 'Logado com sucesso.' }
       format.json { head :no_content }
     end
    end
@@ -23,7 +23,7 @@ class Usuarios::SessionsController < Devise::SessionsController
    def destroy
      #super
      respond_to do |format|
-      format.html { redirect_to veiculos_url, notice: 'Deslogado com sucesso.' }
+      format.html { redirect_to new_usuario_session_path, notice: 'Deslogado com sucesso.' }
       format.json { head :no_content }
     end
    end
