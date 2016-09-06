@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  #devise_for :usuarios
   devise_for :usuarios, :path => '', :path_names => {:sign_in => 'login', :sign_out => 'logout'}
+  resources :calcflex
   resources :marcas
   resources :abastecimentos
   resources :manutencoes
