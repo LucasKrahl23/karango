@@ -5,7 +5,7 @@ class VeiculosController < ApplicationController
   # GET /veiculos
   # GET /veiculos.json
   def index
-    @veiculos = Veiculo.all
+    @veiculos = Veiculo.where(usuario_id: current_usuario)
   end
 
   # GET /veiculos/new
