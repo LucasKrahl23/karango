@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Login</title>
+    <%= csrf_meta_tags %>
+    
+    <link rel="stylesheet" href="/assets/styles/admin1.css">
+    <link rel="stylesheet" href="/assets/styles/elements.css">
+    <link rel="stylesheet" href="/assets/styles/plugins.css">
+    <!--STYLES END-->
+    <link rel="stylesheet" href="/assets/plugins/pnikolov-bootstrap-colorpicker/dist/css/bootstrap-colorpicker.min.css">
+    <link rel="stylesheet" href="/assets/plugins/bootstrap-daterangepicker/daterangepicker-bs3.css">
+    <link rel="stylesheet" href="/assets/plugins/toastr.js/toastr.min.css">
+  </head>
+
+  <body class="theme- theme-teal">
+  <div class="nav-bar-container">
+
+        <!-- BEGIN ICONS -->
+        <div class="nav-menu">
+            <div class="hamburger">
+                <span class="patty"></span>
+                <span class="patty"></span>
+                <span class="patty"></span>
+                <span class="patty"></span>
+                <span class="patty"></span>
+                <span class="patty"></span>
+            </div><!--.hamburger-->
+        </div><!--.nav-menu-->
+
+        <div class="nav-bar-border"></div><!--.nav-bar-border-->
+        <% if usuario_signed_in? %>
+            <div class="nav-user">
+                <div class="user">
+                    <img src="/assets/images/faces/tolga-ergin.jpg" alt="Login">
+                </div> 
+                <div class="cross">
+                    <span class="line"></span>
+                    <span class="line"></span>
+                </div> 
+            </div> 
+        <% end %>
+        <!-- BEGIN OVERLAY HELPERS -->
+        <div class="overlay">
+            <div class="starting-point">
+                <span></span>
+            </div><!--.starting-point-->
+            <div class="logo">Karango WebApp</div><!--.logo-->
+        </div><!--.overlay-->
+
+        <div class="overlay-secondary"></div><!--.overlay-secondary-->
+        <!-- END OF OVERLAY HELPERS -->
+
+    </div><!--.nav-bar-container-->
+
+    <div class="content">
+
+        <div class="page-header full-content bg-teal">
+            <div class="row">
+                <div class="col-sm-6">
+                    <h1>Karango WebApp <small>v1.0 Beta</small></h1>
+                </div><!--.col-->
+                <div class="col-sm-6">
+                    <ol class="breadcrumb">
+                    <a href="mailto:luckrahl1996@gmail.com">
+                        <h1 style="text-transform: none;"><small>Krahl's System</small></h1>
+                    </a>
+                    </ol>
+                </div>
+            </div><!--.row-->
+        </div><!--.page-header-->  
+        <script src="/assets/js/jquery.js"></script>
+        <% if notice != nil %>
+            <script type="text/javascript">
+                $(function(){
+                    toastr["success"]('<%= notice %>', "Karango WepApp")
+                });
+            </script>
+        <% end %>      
+      <%= yield %>
+    </div><!--.content-->
+
+    <div class="layer-container">
+
+        <!-- BEGIN MENU LAYER -->
+        <div class="menu-layer">
+            <ul>
+                <li data-open-after="true">
+                    <a href="/">Dashboard</a>
+                </li>
+                <li>
+                    <a href="/veiculos">Meus Veículos</a>
+                </li>
+                <li>
+                    <a href="/abastecimentos">Abastecimentos</a>
+                </li>
+                <li>
+                    <a href="/despesas">Despesas</a>
+                </li>
+                <li>
+                    <a href="/impostos">Impostos</a>
+                </li>
+                <li>
+                    <a href="/manutencoes">Manutenções</a>
+                </li>
+                <li>
+                    <a href="/calcflex">Calculadora Flex</a>
+                </li>
+                <li>
+                    <a href="/veiculos">Relatórios</a>
+                </li>
+                <li>
+                    <a href="/usuarios">Usuários</a>
+                </li>
+                <li>
+                    <a href="javascript:;">Cadastros Admin</a>
+                    <ul class="child-menu">
+                        <li><a href="/combustiveis">Combustíveis</a></li>
+                        <li><a href="/formaspagamentos">Formas de Pagamento</a></li>
+                        <li><a href="/marcas">Marcas</a></li>
+                        <li><a href="/perfisusuarios">Perfis de usuário</a></li>
+                        <li><a href="/tiposveiculos">Tipo de Veículos</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div><!--.menu-layer-->
+        <!-- END OF MENU LAYER -->
+        <% if usuario_signed_in? %>
+        <!-- BEGIN USER LAYER -->
+        <div class="user-layer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+                <li class="active"><a href="#conta" data-toggle="tab">Configurações</a></li>
+            </ul>
+
+            <div class="row no-gutters tab-content">
+                <div class="tab-pane fade in active" id="conta">
+                    <div class="col-md-6 col-md-offset-3">
+
+                        <div class="settings-panel">
+                            <h1 class="text-grey">Olá, <%= current_usuario.nome %></h1>
+
+                            <div class="legend">Configurações da Conta</div>
+                            <ul>
+                                <%= button_to "Editar", edit_usuario_registration_path, :method=>:get, :class => "btn btn-primary   btn-lg btn-block btn-ripple" %>
+                                </br>
+                                <%= button_to "Sair", destroy_usuario_session_path, :method=>:delete, :class => "btn btn-danger btn-lg btn-block btn-ripple " %>
+                            </ul>
+
+                        </div><!--.settings-panel-->
+
+                    </div><!--.col-->
+                </div><!--.tab-pane #settings-->
+
+            </div><!--.row-->
+        </div><!--.user-layer-->
+        <!-- END OF USER LAYER -->
+        <% end %>
+    </div><!--.layer-container-->
+    <!--SCRIPTS-->
+    <script src="/assets/js/global-vendors.js"></script>
+    <script src="/assets/js/layout.js"></script>
+    <script src="/assets/js/pleasure.js"></script>
+    <!--SCRIPTS END-->
+    <script src="/assets/scripts/forms-pickers.js"></script>
+    <script src="/assets/scripts/forms-tools.js"></script>
+    <script src="/assets/plugins/jquery.inputmask/dist/jquery.inputmask.bundle.js"></script>
+    <script src="/assets/plugins/jquery.payment/lib/jquery.payment.js"></script>
+    <script src="/assets/plugins/indicator/indicator.js"></script>
+    <script src="/assets/plugins/pwstrength-bootstrap/dist/pwstrength-bootstrap-1.2.2.min.js"></script>
+    <script src="/assets/plugins/bootstrap-maxlength/bootstrap-maxlength.min.js"></script>
+    <script src="/assets/plugins/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js"></script>
+    <script src="/assets/plugins/bootstrap-daterangepicker/daterangepicker.js"></script>
+    <script src="/assets/plugins/pnikolov-bootstrap-colorpicker/dist/js/bootstrap-colorpicker.min.js"></script>
+    <script src="/assets/plugins/toastr.js/toastr.min.js"></script>
+    <!-- BEGIN INITIALIZATION-->
+    <script>
+    $(document).ready(function () {
+        Pleasure.init();
+        Layout.init();
+        FormsTools.init();
+        FormsPickers.init();
+    });
+    </script>
+    <!-- END INITIALIZATION-->
+  </body>
+</html>
