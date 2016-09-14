@@ -15,21 +15,17 @@
           <table class="table table-bordered table-striped table-condensed">
             <thead>
               <tr>
-                <th>Código</th>
                 <th>Nome</th>
                 <th>Placa</th>
-                <th>Usuario</th>
                 <th>Marca</th>
-                <th>Tiposveiculo</th>
+                <th>Tipo de Veículo</th>
                 <th style="width:120px">Ações</th>
             </thead>
             <tbody>
-              <% @veiculos.each do |veiculo| %>
-                <tr>
-                  <td><%= veiculo.id %></td>
+              <% @veiculos.sort_by(&:nome).each do |veiculo| %>
+                <tr align="center">
                   <td><%= veiculo.nome %></td>
                   <td><%= veiculo.placa %></td>
-                  <td><%= Usuario.find(veiculo.usuario).nome %></td>
                   <td><%= Marca.find(veiculo.marca).nome %></td>
                   <td><%= Tiposveiculo.find(veiculo.tiposveiculo).nome %></td>
                   
