@@ -16,6 +16,7 @@
             <thead>
               <tr>
                 <th>Veículo</th>
+                <th>Data Abastecimento</th>
                 <th>Odometro</th>
                 <th>Preço Litro</th>
                 <th>Preço Total</th>
@@ -24,12 +25,13 @@
                 <th style="width:120px">Ações</th>
             </thead>
             <tbody>
-              <% @abastecimentos.each do |abastecimento| %>
+              <% @abastecimentos.sort_by(&:abastecimento_dt).reverse!.each do |abastecimento| %>
                 <tr>
-                  <td><%= Veiculo.find(abastecimento.veiculo).nome %></td>
-                  <td><%= abastecimento.odometro %></td>
-                  <td><%= abastecimento.precolitro %></td>
-                  <td><%= abastecimento.precototal %></td>
+                  <td align="center"><%= Veiculo.find(abastecimento.veiculo).nome %></td>
+                  <td align="center"><%= abastecimento.abastecimento_dt %></td>
+                  <td align="center"><%= abastecimento.odometro %></td>
+                  <td align="right">R$ <%= abastecimento.precolitro %></td>
+                  <td align="right">R$ <%= abastecimento.precototal %></td>
                   <td align="center">
                     <% if abastecimento.completou_flag %>
                       <div class="checkboxer">
@@ -43,7 +45,7 @@
                       </div>
                     <% end %>
                   </td>
-                  <td><%= Combustivel.find(abastecimento.combustivel).nome %></td>
+                  <td align="center"><%= Combustivel.find(abastecimento.combustivel).nome %></td>
                   
                   <td align="center">
                     <a href="<%= edit_abastecimento_path(abastecimento) %>" class="btn btn-default btn-ripple" title="Editar registro">
