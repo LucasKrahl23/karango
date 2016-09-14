@@ -12,6 +12,13 @@
   <% end %>
 
   <div class="row example-row">
+    <div class="col-md-3">Veículo:</div> 
+      <div class="col-md-9">
+        <%= f.collection_select(:veiculo_id, Veiculo.all, :id, :nome, {prompt: "Selecione"}, {class: 'selectpicker'}) %>
+      </div> 
+  </div>
+
+  <div class="row example-row">
     <div class="col-md-3">Descrição:</div> 
       <div class="col-md-9">
         <div class="inputer">
@@ -59,18 +66,11 @@
   </div>
 
   <div class="row example-row">
-    <div class="col-md-3">Veículo:</div> 
-      <div class="col-md-9">
-        <%= f.collection_select(:veiculo_id, Veiculo.all, :id, :nome, {prompt: "Selecione"}, {class: 'selectpicker'}) %>
-      </div> 
-  </div>
-
-  <div class="row example-row">
     <div class="col-md-3">Observações:</div> 
       <div class="col-md-9">
         <div class="inputer">
             <div class="input-wrapper">
-              <%= f.text_field :obs, class: 'form-control' %>
+              <%= f.text_area :obs, class: 'form-control', rows: '4' %>
             </div>
           </div>
       </div> 

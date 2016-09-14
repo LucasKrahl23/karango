@@ -15,18 +15,18 @@
           <table class="table table-bordered table-striped table-condensed">
             <thead>
               <tr>
-                <th>Descricao</th>
-                <th>Despesa dt</th>
+                <th>Descrição</th>
+                <th>Data Despesa</th>
                 <th>Valor</th>
                 <th>Veiculo</th>
                 <th style="width:120px">Ações</th>
             </thead>
             <tbody>
-              <% @despesas.each do |despesa| %>
-                <tr>
+              <% @despesas.sort_by(&:despesa_dt).reverse!.each do |despesa| %>
+                <tr align="center">
                   <td><%= despesa.descricao %></td>
                   <td><%= despesa.despesa_dt %></td>
-                  <td><%= despesa.valor %></td>
+                  <td align="right">R$ <%= despesa.valor %></td>
                   <td><%= Veiculo.find(despesa.veiculo).nome %></td>
                   
                   <td align="center">
