@@ -13,5 +13,6 @@ Rails.application.routes.draw do
   resources :combustiveis
   resources :perfisusuarios
   root to: 'dashboard#index'
+  get '/relatorios', to: 'relatorios#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
