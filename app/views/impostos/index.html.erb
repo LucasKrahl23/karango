@@ -15,18 +15,18 @@
           <table class="table table-bordered table-striped table-condensed">
             <thead>
               <tr>
-                <th>Descricao</th>
+                <th>Descrição</th>
                 <th>Valor</th>
-                <th>Vencimento dt</th>
-                <th>Pago flag</th>
+                <th>Data Vencimento</th>
+                <th>Imposto Pago</th>
                 <th>Veiculo</th>
                 <th style="width:120px">Ações</th>
             </thead>
             <tbody>
-              <% @impostos.each do |imposto| %>
-                <tr>
+              <% @impostos.sort_by(&:vencimento_dt).reverse!.each do |imposto| %>
+                <tr align="center">
                   <td><%= imposto.descricao %></td>
-                  <td><%= imposto.valor %></td>
+                  <td align="right">R$ <%= imposto.valor %></td>
                   <td><%= imposto.vencimento_dt %></td>
                   <td align="center">
                     <% if imposto.pago_flag %>

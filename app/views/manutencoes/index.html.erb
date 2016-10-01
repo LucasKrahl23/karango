@@ -15,21 +15,21 @@
           <table class="table table-bordered table-striped table-condensed">
             <thead>
               <tr>
-                <th>Descricao</th>
+                <th>Veículo</th>
+                <th>Descrição</th>
                 <th>Odometro</th>
-                <th>Manutencao dt</th>
+                <th>Data Manutenção</th>
                 <th>Valor</th>
-                <th>Veiculo</th>
                 <th style="width:120px">Ações</th>
             </thead>
             <tbody>
-              <% @manutencoes.each do |manutencao| %>
-                <tr>
+              <% @manutencoes.sort_by(&:manutencao_dt).reverse!.each do |manutencao| %>
+                <tr align="center">
+                  <td><%= Veiculo.find(manutencao.veiculo).nome %></td>
                   <td><%= manutencao.descricao %></td>
                   <td><%= manutencao.odometro %></td>
                   <td><%= manutencao.manutencao_dt %></td>
-                  <td><%= manutencao.valor %></td>
-                  <td><%= Veiculo.find(manutencao.veiculo).nome %></td>
+                  <td align="right">R$ <%= manutencao.valor %></td>
                   <td align="center">
                     <a href="<%= edit_manutencao_path(manutencao) %>" class="btn btn-default btn-ripple" title="Editar registro">
                       <span class="ion-edit">
