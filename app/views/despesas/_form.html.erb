@@ -14,7 +14,7 @@
   <div class="row example-row">
     <div class="col-md-3">Veículo:</div> 
       <div class="col-md-9">
-        <%= f.collection_select(:veiculo_id, Veiculo.all, :id, :nome, {prompt: "Selecione"}, {class: 'selectpicker'}) %>
+        <%= f.collection_select(:veiculo_id, Veiculo.all, :id, :nome, {prompt: "Selecione"}, {class: 'selectpicker', "data-live-search" => "true"}) %>
       </div> 
   </div>
 
@@ -61,7 +61,7 @@
   <div class="row example-row">
     <div class="col-md-3">Forma de Pagamento:</div> 
       <div class="col-md-9">
-        <%= f.collection_select(:formaspagamento_id, Formaspagamento.all, :id, :nome, {prompt: "Selecione"}, {class: 'selectpicker'}) %>
+        <%= f.collection_select(:formaspagamento_id, Formaspagamento.all, :id, :nome, {prompt: "Selecione"}, {class: 'selectpicker', "data-live-search" => "true"}) %>
       </div> 
   </div>
 
