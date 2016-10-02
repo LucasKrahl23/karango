@@ -5,7 +5,8 @@ class AbastecimentosController < ApplicationController
   # GET /abastecimentos
   # GET /abastecimentos.json
   def index
-    @abastecimentos = Abastecimento.all
+    @veiculos = Veiculo.where(usuario_id: current_usuario)
+    @abastecimentos = Abastecimento.where(:veiculo_id => @veiculos)
   end
   
   # GET /abastecimentos/new

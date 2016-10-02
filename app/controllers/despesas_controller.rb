@@ -5,7 +5,8 @@ class DespesasController < ApplicationController
   # GET /despesas
   # GET /despesas.json
   def index
-    @despesas = Despesa.all
+    @veiculos = Veiculo.where(usuario_id: current_usuario)
+    @despesas = Despesa.where(:veiculo_id => @veiculos)
   end
 
   # GET /despesas/new

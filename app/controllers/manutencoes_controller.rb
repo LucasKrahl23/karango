@@ -5,7 +5,8 @@ class ManutencoesController < ApplicationController
   # GET /manutencoes
   # GET /manutencoes.json
   def index
-    @manutencoes = Manutencao.all
+    @veiculos = Veiculo.where(usuario_id: current_usuario)
+    @manutencoes = Manutencao.where(:veiculo_id => @veiculos)
   end
 
   # GET /manutencoes/new

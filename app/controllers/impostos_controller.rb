@@ -5,7 +5,8 @@ class ImpostosController < ApplicationController
   # GET /impostos
   # GET /impostos.json
   def index
-    @impostos = Imposto.all
+    @veiculos = Veiculo.where(usuario_id: current_usuario)
+    @impostos = Imposto.where(:veiculo_id => @veiculos)
   end
 
   # GET /impostos/new
