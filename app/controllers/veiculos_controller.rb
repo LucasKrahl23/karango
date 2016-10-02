@@ -1,15 +1,11 @@
 class VeiculosController < ApplicationController
-  before_action :set_veiculo, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_usuario!
+  before_action :set_veiculo, only: [:edit, :update, :destroy]
 
   # GET /veiculos
   # GET /veiculos.json
   def index
-    @veiculos = Veiculo.all
-  end
-
-  # GET /veiculos/1
-  # GET /veiculos/1.json
-  def show
+    @veiculos = Veiculo.where(usuario_id: current_usuario)
   end
 
   # GET /veiculos/new
@@ -28,7 +24,7 @@ class VeiculosController < ApplicationController
 
     respond_to do |format|
       if @veiculo.save
-        format.html { redirect_to veiculos_url, notice: 'Veiculo was successfully created.' }
+        format.html { redirect_to veiculos_url, notice: 'Veículo criado com sucesso.' }
         format.json { head :no_content }
       else
         format.html { render :new }
@@ -42,7 +38,7 @@ class VeiculosController < ApplicationController
   def update
     respond_to do |format|
       if @veiculo.update(veiculo_params)
-        format.html { redirect_to veiculos_url, notice: 'Veiculo was successfully updated.' }
+        format.html { redirect_to veiculos_url, notice: 'Veículo editado com sucesso.' }
        format.json { head :no_content }
       else
         format.html { render :edit }
@@ -56,7 +52,7 @@ class VeiculosController < ApplicationController
   def destroy
     @veiculo.destroy
     respond_to do |format|
-      format.html { redirect_to veiculos_url, notice: 'Veiculo was successfully destroyed.' }
+      format.html { redirect_to veiculos_url, notice: 'Veículo excluído com sucesso.' }
       format.json { head :no_content }
     end
   end

@@ -1,1 +1,0 @@
-json.partial! "combustiveis/combustivel", combustivel: @combustivel

@@ -1,15 +1,11 @@
 class CombustiveisController < ApplicationController
-  before_action :set_combustivel, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_usuario!
+  before_action :set_combustivel, only: [:edit, :update, :destroy]
 
   # GET /combustiveis
   # GET /combustiveis.json
   def index
     @combustiveis = Combustivel.all
-  end
-
-  # GET /combustiveis/1
-  # GET /combustiveis/1.json
-  def show
   end
 
   # GET /combustiveis/new
@@ -28,7 +24,7 @@ class CombustiveisController < ApplicationController
 
     respond_to do |format|
       if @combustivel.save
-        format.html { redirect_to combustiveis_url, notice: 'Combustivel was successfully created.' }
+        format.html { redirect_to combustiveis_url, notice: 'Combustível criado com sucesso.' }
         format.json { head :no_content }
       else
         format.html { render :new }
@@ -42,7 +38,7 @@ class CombustiveisController < ApplicationController
   def update
     respond_to do |format|
       if @combustivel.update(combustivel_params)
-        format.html { redirect_to combustiveis_url, notice: 'Combustivel was successfully updated.' }
+        format.html { redirect_to combustiveis_url, notice: 'Combustível editado com sucesso.' }
         format.json { head :no_content }
       else
         format.html { render :edit }
@@ -56,7 +52,7 @@ class CombustiveisController < ApplicationController
   def destroy
     @combustivel.destroy
     respond_to do |format|
-      format.html { redirect_to combustiveis_url, notice: 'Combustivel was successfully destroyed.' }
+      format.html { redirect_to combustiveis_url, notice: 'Combustível excluído com sucesso.' }
       format.json { head :no_content }
     end
   end

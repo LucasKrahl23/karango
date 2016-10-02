@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Karango WebApp</title>
+
+    <%= csrf_meta_tags %>
+    
+    <link rel="stylesheet" href="/assets/styles/admin1.css">
+    <link rel="stylesheet" href="/assets/styles/elements.css">
+    <link rel="stylesheet" href="/assets/styles/plugins.css">
+    <link rel="shortcut icon" href="/assets/images/icons/favicon.ico">
+    <link rel="stylesheet" href="/assets/plugins/toastr.js/toastr.min.css">
+    <script src="/assets/plugins/modernizr/modernizr.min.js"></script>
+</head>
+<body class="bg-login printable">
+    <%= yield %>
+
+    <script src="/assets/js/global-vendors.js"></script>
+    <script src="/assets/js/layout.js"></script>
+    <script src="/assets/js/pleasure.js"></script>
+
+    <!-- PLUGINS INITIALIZATION AND SETTINGS -->
+    <script src="/assets/scripts/user-pages.js"></script>
+    <script src="/assets/plugins/toastr.js/toastr.min.js"></script>
+    <!-- END PLUGINS INITIALIZATION AND SETTINGS -->
+
+
+    <!-- BEGIN INITIALIZATION-->
+    <script>
+    $(document).ready(function () {
+        Pleasure.init();
+        Layout.init();
+        UserPages.login();
+    });
+    </script>
+    <!-- END INITIALIZATION-->
+</body>
+</html>

@@ -1,15 +1,12 @@
 class DespesasController < ApplicationController
-  before_action :set_despesa, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_usuario!
+  before_action :set_despesa, only: [:edit, :update, :destroy]
 
   # GET /despesas
   # GET /despesas.json
   def index
-    @despesas = Despesa.all
-  end
-
-  # GET /despesas/1
-  # GET /despesas/1.json
-  def show
+    @veiculos = Veiculo.where(usuario_id: current_usuario)
+    @despesas = Despesa.where(:veiculo_id => @veiculos)
   end
 
   # GET /despesas/new
@@ -28,7 +25,7 @@ class DespesasController < ApplicationController
 
     respond_to do |format|
       if @despesa.save
-        format.html { redirect_to despesas_url, notice: 'Despesa was successfully created.' }
+        format.html { redirect_to despesas_url, notice: 'Despesa criada com sucesso.' }
         format.json { head :no_content }
       else
         format.html { render :new }
@@ -42,7 +39,7 @@ class DespesasController < ApplicationController
   def update
     respond_to do |format|
       if @despesa.update(despesa_params)
-        format.html { redirect_to despesas_url, notice: 'Despesa was successfully updated.' }
+        format.html { redirect_to despesas_url, notice: 'Despesa editada com sucesso.' }
         format.json { head :no_content }
       else
         format.html { render :edit }
@@ -56,7 +53,7 @@ class DespesasController < ApplicationController
   def destroy
     @despesa.destroy
     respond_to do |format|
-      format.html { redirect_to despesas_url, notice: 'Despesa was successfully destroyed.' }
+      format.html { redirect_to despesas_url, notice: 'Despesa excluída com sucesso.' }
       format.json { head :no_content }
     end
   end

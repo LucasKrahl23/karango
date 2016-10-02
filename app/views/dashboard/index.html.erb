@@ -1,0 +1,61 @@
+<div class="row">
+	<a href="/veiculos">
+		<div class="col-md-3">
+			<div class="card card-iconic card-green">
+				<div class="card-full-icon ion-android-car"></div>
+
+				<div class="card-body text-left">
+					<i class="card-icon ion-android-car"></i>
+					<h4>Veículos</h4>
+					<p><%= Veiculo.count %> Véiculos cadastrados.</p>
+				</div><!--.card-body-->
+
+			</div><!--.card-->
+		</div><!--.col-md-3-->
+	</a>
+
+	<a href="/abastecimentos">
+		<div class="col-md-3">
+			<div class="card card-iconic card-indigo">
+				<div class="card-full-icon ion-arrow-graph-up-right"></div>
+
+				<div class="card-body">
+					<i class="card-icon ion-arrow-graph-up-right"></i>
+					<h4>Abastecimentos</h4>
+					<p><%= Abastecimento.count %> Abastecimentos registrados...</p>
+				</div><!--.card-body-->
+
+			</div><!--.card-->
+		</div><!--.col-md-3-->
+	</a>
+
+	<a href="/despesas">
+		<div class="col-md-3">
+			<div class="card card-iconic card-grey">
+				<div class="card-full-icon ion-clipboard"></div>
+
+				<div class="card-body">
+					<i class="card-icon ion-clipboard"></i>
+					<h4>Despesas</h4>
+					<p><%= Despesa.count %> despesas registradas...</p>
+				</div><!--.card-body-->
+
+			</div><!--.card-->
+		</div><!--.col-md-3-->
+	</a>
+
+	<a href="/manutencoes">
+		<div class="col-md-3">
+			<div class="card card-iconic card-red">
+				<div class="card-full-icon ion-hammer"></div>
+
+				<div class="card-body text-right">
+					<i class="card-icon ion-hammer"></i>
+					<h4>Manutenções</h4>
+					<p><%= Manutencao.count %> manutenções registradas...</p>
+				</div><!--.card-body-->
+
+			</div><!--.card-->
+		</div><!--.col-md-3-->
+	</a>
+</div><!--.row-->

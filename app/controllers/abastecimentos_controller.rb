@@ -1,17 +1,14 @@
 class AbastecimentosController < ApplicationController
-  before_action :set_abastecimento, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_usuario!
+  before_action :set_abastecimento, only: [:edit, :update, :destroy]
 
   # GET /abastecimentos
   # GET /abastecimentos.json
   def index
-    @abastecimentos = Abastecimento.all
+    @veiculos = Veiculo.where(usuario_id: current_usuario)
+    @abastecimentos = Abastecimento.where(:veiculo_id => @veiculos)
   end
-
-  # GET /abastecimentos/1
-  # GET /abastecimentos/1.json
-  def show
-  end
-
+  
   # GET /abastecimentos/new
   def new
     @abastecimento = Abastecimento.new
@@ -28,7 +25,7 @@ class AbastecimentosController < ApplicationController
 
     respond_to do |format|
       if @abastecimento.save
-        format.html { redirect_to abastecimentos_url, notice: 'Abastecimento was successfully created.' }
+        format.html { redirect_to abastecimentos_url, notice: 'Abastecimento criado com sucesso.' }
         format.json { head :no_content }
       else
         format.html { render :new }
@@ -42,7 +39,7 @@ class AbastecimentosController < ApplicationController
   def update
     respond_to do |format|
       if @abastecimento.update(abastecimento_params)
-        format.html { redirect_to abastecimentos_url, notice: 'Abastecimento was successfully updated.' }
+        format.html { redirect_to abastecimentos_url, notice: 'Abastecimento editado com sucesso.' }
         format.json { head :no_content }
       else
         format.html { render :edit }
@@ -56,7 +53,7 @@ class AbastecimentosController < ApplicationController
   def destroy
     @abastecimento.destroy
     respond_to do |format|
-      format.html { redirect_to abastecimentos_url, notice: 'Abastecimento was successfully destroyed.' }
+      format.html { redirect_to abastecimentos_url, notice: 'Abastecimento excluído com sucesso.' }
       format.json { head :no_content }
     end
   end

@@ -1,17 +1,13 @@
 class PerfisusuariosController < ApplicationController
-  before_action :set_perfisusuario, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_usuario!
+  before_action :set_perfisusuario, only: [:edit, :update, :destroy]
 
   # GET /perfisusuarios
   # GET /perfisusuarios.json
   def index
     @perfisusuarios = Perfisusuario.all
   end
-
-  # GET /perfisusuarios/1
-  # GET /perfisusuarios/1.json
-  def show
-  end
-
+  
   # GET /perfisusuarios/new
   def new
     @perfisusuario = Perfisusuario.new
@@ -28,7 +24,7 @@ class PerfisusuariosController < ApplicationController
 
     respond_to do |format|
       if @perfisusuario.save
-        format.html { redirect_to perfisusuarios_url, notice: 'Perfisusuario was successfully created.' }
+        format.html { redirect_to perfisusuarios_url, notice: 'Perfil de Usuário criado com sucesso.' }
         format.json { head :no_content }
       else
         format.html { render :new }
@@ -42,7 +38,7 @@ class PerfisusuariosController < ApplicationController
   def update
     respond_to do |format|
       if @perfisusuario.update(perfisusuario_params)
-        format.html { redirect_to perfisusuarios_url, notice: 'Perfisusuario was successfully updated.' }
+        format.html { redirect_to perfisusuarios_url, notice: 'Perfil de Usuário editado com sucesso.' }
         format.json { head :no_content }
       else
         format.html { render :edit }
@@ -56,7 +52,7 @@ class PerfisusuariosController < ApplicationController
   def destroy
     @perfisusuario.destroy
     respond_to do |format|
-      format.html { redirect_to perfisusuarios_url, notice: 'Perfisusuario was successfully destroyed.' }
+      format.html { redirect_to perfisusuarios_url, notice: 'Perfil de Usuário excluído com sucesso.' }
       format.json { head :no_content }
     end
   end

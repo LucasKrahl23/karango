@@ -5,32 +5,27 @@
         <div class="panel-title">
           <h4>Cadastro de Veículos</h4>
             <a class="btn btn-floating btn-teal btn-light-green pull-right" href="<%=new_veiculo_path %>">
-              <i class="ion-android-add"></i>
+              <i class="ion-android-add"></i> 
             </a>
         </div>
         
       </div><!--.panel-heading-->
       <div class="panel-body">
-        <p id="notice"><%= notice %></p>
         <div class="unseen">
           <table class="table table-bordered table-striped table-condensed">
             <thead>
               <tr>
-                <th>Código</th>
                 <th>Nome</th>
                 <th>Placa</th>
-                <th>Usuario</th>
                 <th>Marca</th>
-                <th>Tiposveiculo</th>
+                <th>Tipo de Veículo</th>
                 <th style="width:120px">Ações</th>
             </thead>
             <tbody>
-              <% @veiculos.each do |veiculo| %>
-                <tr>
-                  <td><%= veiculo.id %></td>
+              <% @veiculos.sort_by(&:nome).each do |veiculo| %>
+                <tr align="center">
                   <td><%= veiculo.nome %></td>
                   <td><%= veiculo.placa %></td>
-                  <td><%= Usuario.find(veiculo.usuario).nome %></td>
                   <td><%= Marca.find(veiculo.marca).nome %></td>
                   <td><%= Tiposveiculo.find(veiculo.tiposveiculo).nome %></td>
                   

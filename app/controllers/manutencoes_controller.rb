@@ -1,15 +1,12 @@
 class ManutencoesController < ApplicationController
-  before_action :set_manutencao, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_usuario!
+  before_action :set_manutencao, only: [:edit, :update, :destroy]
 
   # GET /manutencoes
   # GET /manutencoes.json
   def index
-    @manutencoes = Manutencao.all
-  end
-
-  # GET /manutencoes/1
-  # GET /manutencoes/1.json
-  def show
+    @veiculos = Veiculo.where(usuario_id: current_usuario)
+    @manutencoes = Manutencao.where(:veiculo_id => @veiculos)
   end
 
   # GET /manutencoes/new
@@ -28,7 +25,7 @@ class ManutencoesController < ApplicationController
 
     respond_to do |format|
       if @manutencao.save
-        format.html { redirect_to manutencoes_url, notice: 'Manutencao was successfully created.' }
+        format.html { redirect_to manutencoes_url, notice: 'Manutenção criada com sucesso.' }
         format.json { head :no_content }
       else
         format.html { render :new }
@@ -42,7 +39,7 @@ class ManutencoesController < ApplicationController
   def update
     respond_to do |format|
       if @manutencao.update(manutencao_params)
-        format.html { redirect_to manutencoes_url, notice: 'Manutencao was successfully updated.' }
+        format.html { redirect_to manutencoes_url, notice: 'Manutenção editada com sucesso.' }
         format.json { head :no_content }
       else
         format.html { render :edit }
@@ -56,7 +53,7 @@ class ManutencoesController < ApplicationController
   def destroy
     @manutencao.destroy
     respond_to do |format|
-      format.html { redirect_to manutencoes_url, notice: 'Manutencao was successfully destroyed.' }
+      format.html { redirect_to manutencoes_url, notice: 'Manutenção excluída com sucesso.' }
       format.json { head :no_content }
     end
   end

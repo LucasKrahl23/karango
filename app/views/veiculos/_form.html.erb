@@ -32,25 +32,25 @@
           </div>
       </div> 
   </div>
-
-  <div class="row example-row">
+  
+  <div class="row example-row" hidden="hidden">
     <div class="col-md-3">Usuário:</div> 
       <div class="col-md-9">
-        <%= f.collection_select(:usuario_id, Usuario.all, :id, :nome, {prompt: "Selecione"}, {class: 'selectpicker'}) %>
+        <%= f.collection_select(:usuario_id, Usuario.where(email: current_usuario.email), :id, :nome, {style: 'selectpicker'}) %>
       </div> 
   </div>
 
   <div class="row example-row">
     <div class="col-md-3">Marca:</div> 
-      <div class="col-md-9">
-        <%= f.collection_select(:marca_id, Marca.all, :id, :nome, {prompt: "Selecione"}, {class: 'selectpicker'}) %>
+      <div class="col-md-9" data-live-search="true">
+        <%= f.collection_select(:marca_id, Marca.all, :id, :nome, {prompt: "Selecione"}, {class: 'selectpicker', "data-live-search" => "true"}) %>
       </div> 
   </div>
 
   <div class="row example-row">
     <div class="col-md-3">Tipo do Veículo:</div> 
       <div class="col-md-9">
-        <%= f.collection_select(:tiposveiculo_id, Tiposveiculo.all, :id, :nome, {prompt: "Selecione"}, {class: 'selectpicker'}) %>
+        <%= f.collection_select(:tiposveiculo_id, Tiposveiculo.all, :id, :nome, {prompt: "Selecione"}, {class: 'selectpicker', "data-live-search" => "true"}) %>
       </div> 
   </div>
 

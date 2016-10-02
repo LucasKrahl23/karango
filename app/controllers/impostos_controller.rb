@@ -1,15 +1,12 @@
 class ImpostosController < ApplicationController
-  before_action :set_imposto, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_usuario!
+  before_action :set_imposto, only: [:edit, :update, :destroy]
 
   # GET /impostos
   # GET /impostos.json
   def index
-    @impostos = Imposto.all
-  end
-
-  # GET /impostos/1
-  # GET /impostos/1.json
-  def show
+    @veiculos = Veiculo.where(usuario_id: current_usuario)
+    @impostos = Imposto.where(:veiculo_id => @veiculos)
   end
 
   # GET /impostos/new
@@ -28,7 +25,7 @@ class ImpostosController < ApplicationController
 
     respond_to do |format|
       if @imposto.save
-        format.html { redirect_to impostos_url, notice: 'Imposto was successfully created.' }
+        format.html { redirect_to impostos_url, notice: 'Imposto criado com sucesso.' }
         format.json { head :no_content }
       else
         format.html { render :new }
@@ -42,7 +39,7 @@ class ImpostosController < ApplicationController
   def update
     respond_to do |format|
       if @imposto.update(imposto_params)
-        format.html { redirect_to impostos_url, notice: 'Imposto was successfully updated.' }
+        format.html { redirect_to impostos_url, notice: 'Imposto editado com sucesso.' }
         format.json { head :no_content }
       else
         format.html { render :edit }
@@ -56,7 +53,7 @@ class ImpostosController < ApplicationController
   def destroy
     @imposto.destroy
     respond_to do |format|
-      format.html { redirect_to impostos_url, notice: 'Imposto was successfully destroyed.' }
+      format.html { redirect_to impostos_url, notice: 'Imposto excluído com sucesso.' }
       format.json { head :no_content }
     end
   end

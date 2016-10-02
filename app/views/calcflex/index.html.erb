@@ -1,0 +1,50 @@
+<div class="row">
+  <div class="col-md-12">
+
+    <div class="panel">
+      <div class="panel-heading">
+        <div class="panel-title">
+          <h4>Calculadora Flex</h4>
+      </div>
+      </div><!--.panel-heading-->
+      <div class="panel-body">
+        <form id="calc" class="form-horizontal">
+            <div class="row example-row">
+                <div class="col-md-3">Valor Alcool</div> 
+                <div class="col-md-9">
+                    <div class="inputer">
+                        <div class="input-wrapper">
+                            <input class="form-control inputmask inputmask-decimal"  id="alcool" required="required" type="numeric">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row example-row">
+                <div class="col-md-3">Valor Gasolina</div> 
+                <div class="col-md-9">
+                    <div class="inputer">
+                        <div class="input-wrapper">
+                            <input class="form-control inputmask inputmask-decimal"  id="gasolina" required="required" type="numeric">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <div class="form-buttons">
+          <div class="row">
+            <div class="col-md-offset-3 col-md-9">
+                <div class="col-md-offset-3 col-md-9">
+              <input type="button" onclick="flex()" class="btn btn-blue btn-ripple" value="Calcular">
+              <input type="reset" value="Limpar Campos" class="btn btn-flat btn-danger btn-ripple">
+            </div>
+            </div>
+          </div>
+        </div>
+        <div id="calcflex-notify" toastr-sticky="true" toastr-type="sucess" toastr-title="Karango Informa" toastr-notification="Recomendamos o uso de gasolina"></div>
+        </form>
+
+      </div><!--.panel-body-->
+    </div><!--.panel-->
+  </div><!--.col-md-12-->
+</div>
+<script src='/assets/calcflex.js'></script>

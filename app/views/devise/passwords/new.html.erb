@@ -1,0 +1,25 @@
+<div class="login-screen">
+    <div class="panel-login blur-content">
+        <div class="panel-heading"><img src="/assets/images/teamfox.png" height="100" alt=""></div><!--.panel-heading-->
+        <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+          <div id="pane-login" class="panel-body active">
+              <h2>Recuperar senha</h2>
+              <div class="form-group">
+                  <div class="inputer">
+                      <div class="input-wrapper">
+                          <%= f.email_field :email, autofocus: true, :placeholder => "Email", :class => "form-control camposlogin" %>
+                      </div>
+                  </div>
+              </div><!--.form-group-->
+              <div class="form-buttons clearfix" align="center">
+                <%= f.submit "Enviar e-mail de recuperação", :class => "btn btn-info" %>
+              </div><!--.form-buttons-->
+              </br>
+              <ul class="extra-links">
+                  <li><a href="<%= new_usuario_session_path %>" class="show-pane-forgot-password">Efetuar Login</a></li>
+                  <li><a href="<%= new_usuario_registration_path %>" class="show-pane-create-account">Criar uma nova conta</a></li>
+              </ul>
+          </div><!--#login.panel-body-->
+        <% end %>
+    </div><!--.blur-content-->
+</div><!--.login-screen-->

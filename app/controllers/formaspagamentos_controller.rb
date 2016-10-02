@@ -1,15 +1,11 @@
 class FormaspagamentosController < ApplicationController
-  before_action :set_formaspagamento, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_usuario!
+  before_action :set_formaspagamento, only: [:edit, :update, :destroy]
 
   # GET /formaspagamentos
   # GET /formaspagamentos.json
   def index
     @formaspagamentos = Formaspagamento.all
-  end
-
-  # GET /formaspagamentos/1
-  # GET /formaspagamentos/1.json
-  def show
   end
 
   # GET /formaspagamentos/new
@@ -28,7 +24,7 @@ class FormaspagamentosController < ApplicationController
 
     respond_to do |format|
       if @formaspagamento.save
-        format.html { redirect_to formaspagamentos_url, notice: 'Formaspagamento was successfully created.' }
+        format.html { redirect_to formaspagamentos_url, notice: 'Forma de Pagamento criada com sucesso.' }
         format.json { head :no_content }
       else
         format.html { render :new }
@@ -42,7 +38,7 @@ class FormaspagamentosController < ApplicationController
   def update
     respond_to do |format|
       if @formaspagamento.update(formaspagamento_params)
-        format.html { redirect_to formaspagamentos_url, notice: 'Formaspagamento was successfully updated.' }
+        format.html { redirect_to formaspagamentos_url, notice: 'Forma de Pagamento editada com sucesso.' }
         format.json { head :no_content }
       else
         format.html { render :edit }
@@ -56,7 +52,7 @@ class FormaspagamentosController < ApplicationController
   def destroy
     @formaspagamento.destroy
     respond_to do |format|
-      format.html { redirect_to formaspagamentos_url, notice: 'Formaspagamento was successfully destroyed.' }
+      format.html { redirect_to formaspagamentos_url, notice: 'Forma de Pagamento excluída com sucesso.' }
       format.json { head :no_content }
     end
   end
