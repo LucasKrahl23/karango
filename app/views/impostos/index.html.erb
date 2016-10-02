@@ -15,16 +15,17 @@
           <table class="table table-bordered table-striped table-condensed">
             <thead>
               <tr>
+                <th>Veículo</th>
                 <th>Descrição</th>
                 <th>Valor</th>
                 <th>Data Vencimento</th>
                 <th>Imposto Pago</th>
-                <th>Veiculo</th>
                 <th style="width:120px">Ações</th>
             </thead>
             <tbody>
               <% @impostos.sort_by(&:vencimento_dt).reverse!.each do |imposto| %>
                 <tr align="center">
+                  <td><%= Veiculo.find(imposto.veiculo).nome %></td>
                   <td><%= imposto.descricao %></td>
                   <td align="right">R$ <%= imposto.valor %></td>
                   <td><%= imposto.vencimento_dt %></td>
@@ -41,7 +42,6 @@
                       </div>
                     <% end %>
                   </td>
-                  <td><%= Veiculo.find(imposto.veiculo).nome %></td>
                   
                   <td align="center">
                     <a href="<%= edit_imposto_path(imposto) %>" class="btn btn-default btn-ripple" title="Editar registro">
