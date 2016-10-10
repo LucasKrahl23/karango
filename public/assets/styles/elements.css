@@ -15026,7 +15026,7 @@ pre .hljs {
 .example-weather-icon .class {
   display: block;
   word-wrap: break-word;
-  font-size: 13px;
+  font-size: 25px;
   opacity: .6;
 }
 .example-weather-icon:hover .icon {
