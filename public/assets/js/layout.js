@@ -473,7 +473,7 @@ var Layout = {
 
 			var html = '<div class="message animate right">'+
 					'<div class="message-text">'+messageText+'</div>'+
-					'<img src="'+Pleasure.settings.paths.images+'/faces/tolga-ergin.jpg" class="user-picture" alt="">'+
+					'<img src="'+Pleasure.settings.paths.images+'/faces/login.png" class="user-picture" alt="">'+
 					'</div>';
 			$messages.append(html);
 			Layout.resetSendMessage();

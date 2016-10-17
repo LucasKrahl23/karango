@@ -8,66 +8,7 @@ var WidgetVideo = {
 
 	sampleVideoList: function () {
 		var videos = [
-			{
-				src : [
-					'http://stream.flowplayer.org/bauhaus/624x260.webm',
-					'http://stream.flowplayer.org/bauhaus/624x260.mp4',
-					'http://stream.flowplayer.org/bauhaus/624x260.ogv'
-				],
-				poster : Pleasure.settings.paths.images+'/picjumbo/13.jpg',
-				title : 'Introducing Pleasure',
-				user: 'Tolga Ergin'
-			},
-			{
-				src : [
-					'http://stream.flowplayer.org/night3/640x360.webm',
-					'http://stream.flowplayer.org/night3/640x360.mp4',
-					'http://stream.flowplayer.org/night3/640x360.ogv'
-				],
-				poster : Pleasure.settings.paths.images+'/picjumbo/8.jpg',
-				title : 'Going Freelance',
-				user: 'Gökhun Güneyhan'
-			},
-			{
-				src : [
-					'http://stream.flowplayer.org/functional/624x260.webm',
-					'http://stream.flowplayer.org/functional/624x260.mp4',
-					'http://stream.flowplayer.org/functional/624x260.ogv'
-				],
-				poster : Pleasure.settings.paths.images+'/picjumbo/9.jpg',
-				title : 'Designing User Interfaces',
-				user: 'Philip Murphy'
-			},
-			{
-				src : [
-					'http://stream.flowplayer.org/bauhaus/624x260.webm',
-					'http://stream.flowplayer.org/bauhaus/624x260.mp4',
-					'http://stream.flowplayer.org/bauhaus/624x260.ogv'
-				],
-				poster : Pleasure.settings.paths.images+'/picjumbo/10.jpg',
-				title : 'Single Page Apps',
-				user: 'Joseph Graham'
-			},
-			{
-				src : [
-					'http://stream.flowplayer.org/night3/640x360.webm',
-					'http://stream.flowplayer.org/night3/640x360.mp4',
-					'http://stream.flowplayer.org/night3/640x360.ogv'
-				],
-				poster : Pleasure.settings.paths.images+'/picjumbo/11.jpg',
-				title : 'How to Create a Wordpress Theme',
-				user: 'Janet Mason'
-			},
-			{
-				src : [
-					'http://stream.flowplayer.org/functional/624x260.webm',
-					'http://stream.flowplayer.org/functional/624x260.mp4',
-					'http://stream.flowplayer.org/functional/624x260.ogv'
-				],
-				poster : Pleasure.settings.paths.images+'/picjumbo/12.jpg',
-				title : '10 Rules Before Submitting',
-				user: 'Bryan Richardson'
-			}
+			
 		];
 		return videos;
 	},
