@@ -59,37 +59,54 @@
 		</div><!--.col-md-3-->
 	</a>
 </div><!--.row-->
+
 <div class="row">
-	<div class="col-md-3 col-sm-6">
-		<div class="card card-dashboard-info card-blue">
-			<div class="card-body">
-				<div class="card-icon"><i class="fa fa-usd"></i></div> 
-				<h4>Veiculo CB300r</h4>
-				<p class="result">21,50 Km/litro</p>
-				<small>Média do ultimo abastecimento</small>
-			</div>
-		</div> 
-	</div> 
-	<div class="col-md-3 col-sm-6">
-		<div class="card card-dashboard-info card-green">
-			<div class="card-body">
-				<div class="card-icon"><i class="fa fa-calculator"></i></div> 
-				<h4>Impostos</h4>
-				<p class="result">Você tem 26 impostos não pagos</p>
-				<small>Atenção</small>
-			</div>
-		</div> 
-	</div> 
-	<div class="col-md-3 col-sm-6">
-		<div class="card card-dashboard-info card-purple">
-			<div class="card-body">
-				<div class="card-icon"><i class="fa fa-thumbs-o-up"></i></div> 
-				<h4>CB300r - Manutenções</h4>
-				<p class="result">Troca de óleo, vence dia 20/10/2016</p>
-				<small>Lembre-se desta manutenção </small>
-			</div>
-		</div> 
-	</div> 
+	<a href="/impostos">
+		<div class="col-md-3">
+			<div class="card card-iconic card-blue">
+				<div class="card-full-icon fa fa-calculator"></div>
+
+				<div class="card-body">
+					<i class="card-icon fa fa-calculator"></i>
+					<h4>Impostos</h4>
+					<p><%= Imposto.count %> impostos registrados...</p>
+				</div><!--.card-body-->
+
+			</div><!--.card-->
+		</div><!--.col-md-3-->
+	</a>
+
+	<a href="/impostos">
+		<div class="col-md-3">
+			<div class="card card-iconic card-pink">
+				<div class="card-full-icon ion-arrow-graph-up-right"></div>
+
+				<div class="card-body">
+					<i class="card-icon ion-arrow-graph-up-right"></i>
+					<h4>Relatório</h4>
+					<p class="result">Veja aqui a autonomia de seu veículo.</p>
+				</div><!--.card-body-->
+
+			</div><!--.card-->
+		</div><!--.col-md-3-->
+	</a>
+
+
+	<a href="/impostos">
+		<div class="col-md-3">
+			<div class="card card-iconic card-purple">
+				<div class="card-full-icon ion-cash"></div>
+
+				<div class="card-body">
+					<i class="card-icon ion-cash"></i>
+					<h4>Relatório</h4>
+					<p class="result">Veja aqui os gastos com seu veículo.</p>
+				</div><!--.card-body-->
+
+			</div><!--.card-->
+		</div><!--.col-md-3-->
+	</a>
+
 	<a href="/calcflex">
 		<div class="col-md-3 col-sm-6">
 			<div class="card card-dashboard-info card-orange">
