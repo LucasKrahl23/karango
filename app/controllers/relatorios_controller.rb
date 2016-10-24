@@ -6,7 +6,7 @@ class RelatoriosController < ApplicationController
   def desempenho
   	@veiculos = Veiculo.where(usuario_id: current_usuario)
   	@veiculo_relatorio = nil
-  	f params[:veiculo].to_i > 0
+  	if params[:veiculo].to_i > 0
   		puts params[:veiculo]
   		@veiculo_relatorio = params[:veiculo]
   	end
@@ -54,7 +54,6 @@ class RelatoriosController < ApplicationController
           @gastokm = @gastototal.to_d / @rodado.to_d
         end
       end
-
     end
   end
 
