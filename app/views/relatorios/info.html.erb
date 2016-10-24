@@ -37,16 +37,16 @@
 		              <tr>
 		                <th>Gasto Médio por dia</th>
 		                <th>Gasto Médio por KM</th>
-		                <th>Total Rodado</th>
 		                <th>Média de KM por dia</th>
+		                <th>Total Rodado</th>
 		                <th>Total Gasto</th>
 		            </thead>
 		            <tbody>
 		                <tr align="center">
 		                  <td>R$ <%= @gastodia.round(2)%></td>
 		                  <td>R$ <%= @gastokm.round(2)%></td>
-		                  <td><%= @rodado%> KM</td>
 		                  <td><%= @kmdia%> KM</td>
+		                  <td><%= @rodado%> KM</td>
 		                  <td>R$ <%= @gastototal%></td>
 		                </tr>
 		            </tbody>
