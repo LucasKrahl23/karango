@@ -15,7 +15,6 @@ class RelatoriosController < ApplicationController
     @veiculos = Veiculo.where(usuario_id: current_usuario)
     @veiculo_relatorio = nil
     if !params[:veiculo].nil? 
-      puts params[:veiculo]
       @veiculo_relatorio = params[:veiculo]
       @gastodia = 0
       @gastokm = 0
@@ -23,6 +22,7 @@ class RelatoriosController < ApplicationController
       @kmdia = 0
       @gastototal = 0
 
+      #informações de valores
       querysql = "select sum(totalgasto) total from ("
       querysql += " select round(sum(precototal),2) as totalgasto from abastecimentos where veiculo_id = "+ @veiculo_relatorio +" and abastecimento_dt > current_date - interval '90' day"
       querysql += " union"
@@ -38,7 +38,7 @@ class RelatoriosController < ApplicationController
           @gastodia = @gastototal.to_d / 90
         end
       end
-
+      #informações de distancia
       querysql = "select min(odometro) as inicio, max(odometro) as fim from ("
       querysql += " select odometro from abastecimentos where veiculo_id = "+ @veiculo_relatorio +" and abastecimento_dt > current_date - interval '90' day"
       querysql += " union"
