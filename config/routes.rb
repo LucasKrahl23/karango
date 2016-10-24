@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'relatorios/index'
+
+  get 'relatorios/desempenho'
+
   devise_for :usuarios, :path => '', :path_names => {:sign_in => 'login', :sign_out => 'logout'}
   resources :calcflex
   resources :dashboard
