@@ -1,0 +1,60 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="panel">
+      <div class="panel-heading">
+        <div class="panel-title">
+          <h4>Resumo dos últimos 90 dias</h4>
+        </div>
+        <br>
+        <form method="get" action="/relatorios/info" class="form-horizontal">
+	        <div class="row example-row">
+	            <div class="col-md-12" align="center">
+
+	            <select class="selectpicker col-md-6" data-live-search="true" name="veiculo" required >
+	              <option value="-1">Selecione um veículo</option>
+	              <% @veiculos.sort_by(&:nome).each do |veiculo| %>
+	                <option value="<%=veiculo.id %>"><%=veiculo.nome %></option>
+	              <% end %>
+	            </select>
+	            
+	            <input type="submit" class="btn btn-blue btn-ripple" value="Gerar">
+	            </div> 
+	        </div>
+	    </form>
+
+      </div><!--.panel-heading-->
+      <div class="panel-body">
+        <div class="unseen">
+          
+          	<% if @veiculo_relatorio.nil? %>
+	          	</br>
+		        	<h2 align="center">Não há dados para mostrar</h2>
+		    	</br>
+		    <% else %>
+		    	<h3>Resumo do Veículo <%= Veiculo.find(@veiculo_relatorio).nome %></h4>
+		    	<table class="table table-bordered table-striped table-condensed">
+		            <thead>
+		              <tr>
+		                <th>Gasto Médio por dia</th>
+		                <th>Gasto Médio por KM</th>
+		                <th>Total Rodado</th>
+		                <th>Média de KM por dia</th>
+		                <th>Total Gasto</th>
+		            </thead>
+		            <tbody>
+		                <tr align="center">
+		                  <td>R$ <%= @gastodia.round(2)%></td>
+		                  <td>R$ <%= @gastokm.round(2)%></td>
+		                  <td><%= @rodado%> KM</td>
+		                  <td><%= @kmdia%> KM</td>
+		                  <td>R$ <%= @gastototal%></td>
+		                </tr>
+		            </tbody>
+		          </table>
+		          <h6>* As informações acima são baseadas nos abastecimentos, despesas e manutenções efetuados no período.</h1>
+	    	<% end %>
+        </div><!--.unseen-->
+      </div><!--.panel-body-->
+    </div><!--.panel-->
+  </div><!--.col-md-12-->
+</div>

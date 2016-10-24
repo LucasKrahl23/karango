@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'relatorios/info'
+
   get 'relatorios/index'
 
   get 'relatorios/desempenho'
