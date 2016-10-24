@@ -6,7 +6,7 @@ class RelatoriosController < ApplicationController
   def desempenho
   	@veiculos = Veiculo.where(usuario_id: current_usuario)
   	@veiculo_relatorio = nil
-  	if !params[:veiculo].nil? 
+  	f params[:veiculo].to_i > 0
   		puts params[:veiculo]
   		@veiculo_relatorio = params[:veiculo]
   	end
@@ -15,7 +15,7 @@ class RelatoriosController < ApplicationController
   def info
     @veiculos = Veiculo.where(usuario_id: current_usuario)
     @veiculo_relatorio = nil
-    if !params[:veiculo].nil? 
+    if params[:veiculo].to_i > 0
       @veiculo_relatorio = params[:veiculo]
       @gastodia = 0
       @gastokm = 0
