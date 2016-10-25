@@ -31,46 +31,42 @@
 		    	</br>
 		    <% else %>
 		    	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-		        <script type="text/javascript">
-		          // VARIAVEIS DEFAULT
-		          var customColors = ['#3366CC','#DC3912','#FF9900','#109618','#990099','#3B3EAC','#0099C6','#DD4477','#66AA00','#B82E2E','#316395','#994499','#22AA99','#AAAA11','#6633CC','#E67300','#8B0707','#329262','#5574A6','#3B3EAC'];
-		          var defaultWidth = 1175;
-		          var defaultHeight = 700;
-		        </script>
-		        <div id="chart_div" z ></div>
-		        <script type="text/javascript">
-		          google.charts.load('current', {packages: ['corechart', 'bar']});
-		          google.charts.setOnLoadCallback(drawStacked);
+			    <div id="query1"></div>
+	            <script type="text/javascript">
+	              	google.charts.load('current', {packages: ['corechart', 'bar']});
+	              	google.charts.setOnLoadCallback(drawStacked);
 
-		          function drawStacked() {
-		            var data = new google.visualization.DataTable();
-		            var dias = [];
-		            var equipes = [];
-		            var qtd= [];
-		            var add=false;
-		            var versaoSelecionada='';
+	                function drawStacked() {
 
-		            data.addColumn('string', 'Equipes');
-		            //Adiciona colunas conforme a quantidade de dias com registro.
-		              
-		            var options = {
-		              colors: customColors,
-		              title: 'Relatório de Desempenjo - Veículo ' ,
-		              legend:'top',
-		              width:defaultWidth,
-		              height:defaultHeight,
-		              bar: {groupWidth: "85%"},
-		              chartArea:{width:"90%",height:"70%"},
-		              hAxis: {
-		                slantedText:true,
-		                slantedTextAngle:25,
-		              }
-		            };
-		              
-		            var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
-		            chart.draw(data, options);
-		          }
-		        </script>
+	                  var data = new google.visualization.DataTable();
+	                  var valores = [];
+
+	                  data.addColumn('string', 'Data');
+	                  data.addColumn('number', 'KM/Litro');
+	                  
+	                  //Adiciona colunas conforme a quantidade de dias com registro.
+	                  
+			            <% for i in 0..@desempenho_media.length-1 %>
+			            	valores.push('<%= @desempenho_legenda[i] %>');
+						    valores.push(<%= @desempenho_media[i] %>);
+				            data.addRow(valores); 
+				            valores = [];   
+						<% end %>
+	                    
+	                  var options = {
+	                    title: 'Relatório de desempenho - Veículo <%= Veiculo.find(@veiculo_relatorio).nome %>',
+	                    width: 1150,
+	                    height: 500,
+	                    curveType: 'function',
+          				legend: { position: 'bottom' },
+          				pointSize: 7//,
+	                   // sliceVisibilityThreshold: .035
+	                  };
+
+	                  var chart = new google.visualization.LineChart(document.getElementById('query1'));
+	                  chart.draw(data, options);
+	                }
+	            </script>
 	    	<% end %>
         </div><!--.unseen-->
       </div><!--.panel-body-->

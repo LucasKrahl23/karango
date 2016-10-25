@@ -120,6 +120,30 @@ class RelatoriosController < ApplicationController
   	if params[:veiculo].to_i > 0
   		puts params[:veiculo]
   		@veiculo_relatorio = params[:veiculo]
+      @desempenho_odometro = []
+      @desempenho_litros = []
+      @desempenho_media = []
+      @desempenho_legenda = []
+      @desempenho_data = []      
+
+      querysql = "select (precototal / precolitro) as litros, odometro, abastecimento_dt from abastecimentos where veiculo_id = "+ @veiculo_relatorio +" order by odometro"
+
+      result = consultaSQL querysql
+      result.each do |row|
+        if !row['litros'].nil?
+          @desempenho_litros.push(row['litros'])
+          @desempenho_odometro.push(row['odometro'])
+          @desempenho_data.push(row['abastecimento_dt'])
+        end
+      end
+
+      for i in 0..@desempenho_odometro.length-1
+        if i > 0
+          @desempenho_media.push( ( (@desempenho_odometro[i].to_d - @desempenho_odometro[i-1].to_d) / @desempenho_litros[i].to_d) )
+          @desempenho_legenda.push(@desempenho_data[i])
+        end
+      end
+
   	end
   end
 
