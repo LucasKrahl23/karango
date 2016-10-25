@@ -1,0 +1,180 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="panel">
+      <div class="panel-heading">
+        <div class="panel-title">
+          <h4>Relatório de Abastecimentos</h4>
+        </div>
+        <form method="post" action="/relatorios/abastecimentos" class="form-horizontal">
+	        <div class="row example-row">
+	            <div class="col-md-12" align="center">
+
+	            <select class="selectpicker col-md-6" data-live-search="true" name="veiculo" required >
+	              <option value="-1">Selecione um veículo</option>
+	              <% @veiculos.sort_by(&:nome).each do |veiculo| %>
+	                <option value="<%=veiculo.id %>"><%=veiculo.nome %></option>
+	              <% end %>
+	            </select>
+	            
+	            <input type="submit" class="btn btn-blue btn-ripple" value="Gerar">
+	            </div> 
+	        </div>
+	    </form>
+
+      </div><!--.panel-heading-->
+      <div class="panel-body">
+        <div class="unseen">
+          
+          	<% if @veiculo_relatorio.nil? %>
+	          	</br>
+		        	<h2 align="center">Não há dados para mostrar</h2>
+		    	</br>
+		    <% else %>
+		    	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+			    <div id="query1"></div>
+	            <script type="text/javascript">
+	              	google.charts.load('current', {packages: ['corechart', 'bar']});
+	                google.charts.setOnLoadCallback(drawStacked);
+
+	                function drawStacked() {
+
+	                  var data = new google.visualization.DataTable();
+	                  var valores = [];
+
+	                  data.addColumn('string', 'Combustível');
+	                  data.addColumn('number', 'Quantidade de abastecimentos');
+	                  
+	                  //Adiciona colunas conforme a quantidade de dias com registro.
+	                  
+			            <% for i in 0..@combustivel_qtd.length-1 %>
+							valores.push('<%= @combustivel_nome[i] %>');
+				            valores.push(<%= @combustivel_qtd[i] %>);
+				            data.addRow(valores); 
+				            valores = [];   
+						<% end %>
+	                    
+	                  var options = {
+	                    title: 'Combustíveis utilizados - Veículo <%= Veiculo.find(@veiculo_relatorio).nome %>',
+	                    width: 1150,
+	                    height: 500//,
+	                   // sliceVisibilityThreshold: .035
+	                  };
+
+	                  var chart = new google.visualization.PieChart(document.getElementById('query1'));
+	                  chart.draw(data, options);
+	                }
+	            </script>
+
+	            <div id="query2"></div>
+	            <script type="text/javascript">
+	              	google.charts.setOnLoadCallback(drawStacked);
+
+	                function drawStacked() {
+
+	                  var data = new google.visualization.DataTable();
+	                  var valores = [];
+
+	                  data.addColumn('string', 'Data');
+	                  data.addColumn('number', 'Odometro - KM');
+	                  
+	                  //Adiciona colunas conforme a quantidade de dias com registro.
+	                  
+			            <% for i in 0..@odometro.length-1 %>
+			            	valores.push('<%= @abastecimento_dt[i] %>');
+						    valores.push(<%= @odometro[i] %>);
+				            data.addRow(valores); 
+				            valores = [];   
+						<% end %>
+	                    
+	                  var options = {
+	                    title: 'Progressão odometro - Veículo <%= Veiculo.find(@veiculo_relatorio).nome %>',
+	                    width: 1150,
+	                    height: 500,
+	                    curveType: 'function',
+          				legend: { position: 'bottom' },
+          				pointSize: 7//,
+	                   // sliceVisibilityThreshold: .035
+	                  };
+
+	                  var chart = new google.visualization.LineChart(document.getElementById('query2'));
+	                  chart.draw(data, options);
+	                }
+	            </script>
+
+	            <div id="query3"></div>
+	            <script type="text/javascript">
+	              	google.charts.setOnLoadCallback(drawStacked);
+
+	                function drawStacked() {
+
+	                  var data = new google.visualization.DataTable();
+	                  var valores = [];
+
+	                  data.addColumn('string', 'Data');
+	                  data.addColumn('number', 'Preço litro - R$');
+	                  
+	                  //Adiciona colunas conforme a quantidade de dias com registro.
+	                  
+			            <% for i in 0..@precolitro.length-1 %>
+			            	valores.push('<%= @precolitro_dt[i] %>');
+						    valores.push(<%= @precolitro[i] %>);
+				            data.addRow(valores); 
+				            valores = [];   
+						<% end %>
+	                    
+	                  var options = {
+	                    title: 'Progressão preço litro - Veículo <%= Veiculo.find(@veiculo_relatorio).nome %>',
+	                    width: 1150,
+	                    height: 500,
+	                    curveType: 'function',
+          				legend: { position: 'bottom' },
+          				pointSize: 7//,
+	                   // sliceVisibilityThreshold: .035
+	                  };
+
+	                  var chart = new google.visualization.LineChart(document.getElementById('query3'));
+	                  chart.draw(data, options);
+	                }
+	            </script>
+
+	            <div id="query4"></div>
+	            <script type="text/javascript">
+	              	google.charts.setOnLoadCallback(drawStacked);
+
+	                function drawStacked() {
+
+	                  var data = new google.visualization.DataTable();
+	                  var valores = [];
+
+	                  data.addColumn('string', 'Data');
+	                  data.addColumn('number', 'Quantidade litros');
+	                  
+	                  //Adiciona colunas conforme a quantidade de dias com registro.
+	                  
+			            <% for i in 0..@litros.length-1 %>
+			            	valores.push('<%= @litros_dt[i] %>');
+						    valores.push(<%= @litros[i] %>);
+				            data.addRow(valores); 
+				            valores = [];   
+						<% end %>
+	                    
+	                  var options = {
+	                    title: 'Progressão litros abastecidos - Veículo <%= Veiculo.find(@veiculo_relatorio).nome %>',
+	                    width: 1150,
+	                    height: 500,
+	                    curveType: 'function',
+          				legend: { position: 'bottom' },
+          				pointSize: 7//,
+	                   // sliceVisibilityThreshold: .035
+	                  };
+
+	                  var chart = new google.visualization.LineChart(document.getElementById('query4'));
+	                  chart.draw(data, options);
+	                }
+	            </script>
+		 	<% end %>
+        </div><!--.unseen-->
+      </div><!--.panel-body-->
+    </div><!--.panel-->
+  </div><!--.col-md-12-->
+</div>
