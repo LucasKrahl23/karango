@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'relatorios/gastos'
+
   get 'relatorios/info'
   post 'relatorios/info'
   

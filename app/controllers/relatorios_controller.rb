@@ -3,6 +3,56 @@ class RelatoriosController < ApplicationController
   def index
   end
 
+  def gastos
+    @veiculos = Veiculo.where(usuario_id: current_usuario)
+    @veiculo_relatorio = nil
+    if params[:veiculo].to_i > 0
+      @veiculo_relatorio = params[:veiculo]
+      @total_abastecimentos = 0
+      @total_despesas = 0
+      @total_impostos = 0
+      @total_manutencoes = 0
+      #@dtinicio = params[:dtinicio]
+      #@dtfim = params[:dtfim]
+
+      querysql = "select sum(precototal) as total from abastecimentos where veiculo_id = "+ @veiculo_relatorio +" and abastecimento_dt between '2015-01-01' and '2016-10-25'"
+
+      result = consultaSQL querysql
+      result.each do |row|
+        if !row['total'].nil?
+          @total_abastecimentos = row['total']
+        end
+      end
+
+      querysql = "select sum(valor) as total from despesas where veiculo_id = "+ @veiculo_relatorio +" and despesa_dt between '2015-01-01' and '2016-10-25'"
+
+      result = consultaSQL querysql
+      result.each do |row|
+        if !row['total'].nil?
+          @total_despesas = row['total']
+        end
+      end
+
+      querysql = "select sum(valor) as total from impostos where veiculo_id = "+ @veiculo_relatorio +" and vencimento_dt between '2015-01-01' and '2016-10-25'"
+
+      result = consultaSQL querysql
+      result.each do |row|
+        if !row['total'].nil?
+          @total_impostos = row['total']
+        end
+      end
+
+      querysql = "select sum(valor) as total from manutencoes where veiculo_id = "+ @veiculo_relatorio +" and manutencao_dt between '2015-01-01' and '2016-10-25'"
+
+      result = consultaSQL querysql
+      result.each do |row|
+        if !row['total'].nil?
+          @total_manutencoes = row['total']
+        end
+      end
+    end
+  end
+
   def desempenho
   	@veiculos = Veiculo.where(usuario_id: current_usuario)
   	@veiculo_relatorio = nil
