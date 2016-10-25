@@ -1,0 +1,84 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="panel">
+      <div class="panel-heading">
+        <div class="panel-title">
+          <h4>Relatório de Gastos</h4>
+        </div>
+        <form method="post" action="/relatorios/gastos" class="form-horizontal">
+	        <div class="row example-row">
+	            <div class="col-md-9" >
+
+	            <select class="selectpicker col-md-6" data-live-search="true" name="veiculo" required >
+	              <option value="-1">Selecione um veículo</option>
+	              <% @veiculos.sort_by(&:nome).each do |veiculo| %>
+	                <option value="<%=veiculo.id %>"><%=veiculo.nome %></option>
+	              <% end %>
+	            </select>
+	            <input type="submit" class="btn btn-blue btn-ripple" value="Gerar">
+	            </div> 
+	        </div>
+	    </form>
+
+      </div><!--.panel-heading-->
+      <div class="panel-body">
+        <div class="unseen">
+          
+          	<% if @veiculo_relatorio.nil? %>
+	          	</br>
+		        	<h2 align="center">Não há dados para mostrar</h2>
+		    	</br>
+		    <% else %>
+		    	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+		        <div id="query3"></div>
+              <script type="text/javascript">
+              google.charts.load('current', {packages: ['corechart', 'bar']});
+                google.charts.setOnLoadCallback(drawStacked);
+
+                function drawStacked() {
+
+                  var data = new google.visualization.DataTable();
+                  var valores = [];
+
+                  data.addColumn('string', 'Tipo');
+                  data.addColumn('number', 'Valor');
+                  
+                  //Adiciona colunas conforme a quantidade de dias com registro.
+                  
+		            valores.push('Abastecimentos - R$ <%= @total_abastecimentos %>');
+		            valores.push(<%= @total_abastecimentos %>);
+		            data.addRow(valores); 
+		            valores = [];
+
+		            valores.push('Despesas - R$ <%= @total_despesas %>');
+		            valores.push(<%= @total_despesas %>);
+		            data.addRow(valores); 
+		            valores = [];
+
+		            valores.push('Impostos - R$ <%= @total_impostos %>');
+		            valores.push(<%= @total_impostos %>);
+		            data.addRow(valores); 
+		            valores = [];
+
+		            valores.push('Manutenções - R$ <%= @total_manutencoes %>');
+		            valores.push(<%= @total_manutencoes %>);
+		            data.addRow(valores); 
+		            valores = [];
+                    
+                  var options = {
+                    title: 'Relatório de Gastos - Veículo <%= Veiculo.find(@veiculo_relatorio).nome %>',
+                    width: 1150,
+                    height: 500,
+                    sliceVisibilityThreshold: .035
+                  };
+
+                  var chart = new google.visualization.PieChart(document.getElementById('query3'));
+                  chart.draw(data, options);
+                }
+              </script>
+	    	<% end %>
+        </div><!--.unseen-->
+      </div><!--.panel-body-->
+    </div><!--.panel-->
+  </div><!--.col-md-12-->
+</div>

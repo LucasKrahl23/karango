@@ -91,8 +91,6 @@ var ImageCropper = {
 
 		$(".changeImage").click(function() {
 			var data_img_source = $(this).attr('data-img-source');
-			$cropper.cropper('replace', Pleasure.settings.paths.images+'/picjumbo/'+data_img_source+'.jpg');
-			$('#sourcePath').val( Pleasure.settings.paths.images+'/picjumbo/'+data_img_source+'.jpg');
 			$('#dataS').val(data_img_source);
 
 			console.log(data_img_source);

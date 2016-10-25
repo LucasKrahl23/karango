@@ -1,17 +1,49 @@
 <div class="row">
-	<a href="/veiculos">
-		<div class="col-md-3">
-			<div class="card card-iconic card-green">
-				<div class="card-full-icon ion-android-car"></div>
-
-				<div class="card-body text-left">
-					<i class="card-icon ion-android-car"></i>
-					<h4>Veículos</h4>
-					<p><%= Veiculo.count %> Véiculos cadastrados.</p>
-				</div><!--.card-body-->
-
-			</div><!--.card-->
-		</div><!--.col-md-3-->
+	<a href="/relatorios/desempenho">
+		<div class="col-md-3 col-sm-6">
+			<div class="card card-dashboard-info card-indigo">
+				<div class="card-body">
+					<div class="card-icon"><i class="ion-arrow-graph-up-right"></i></div> 
+					<p class="result">Relatório de desempenho</p>
+					<small>Acompanhe o desempenho</small>
+				</div>
+			</div> 
+		</div> 
 	</a>
 
-</div><!--.row-->
+	<a href="/relatorios/gastos">
+		<div class="col-md-3 col-sm-6">
+			<div class="card card-dashboard-info card-red">
+				<div class="card-body">
+					<div class="card-icon"><i class="fa fa-calculator"></i></div> 
+					<p class="result">Relatório de Gastos</p>
+					<small>Acompanhe os gastos</small>
+				</div>
+			</div> 
+		</div> 
+	</a>
+	
+	<a href="/relatorios/abastecimentos">
+		<div class="col-md-3 col-sm-6">
+			<div class="card card-dashboard-info card-blue">
+				<div class="card-body">
+					<div class="card-icon"><i class="fa fa-car"></i></div> 
+					<p class="result">Relatório de Abastecimentos</p>
+					<small>Acompanhe os abastecimentos</small>
+				</div>
+			</div> 
+		</div> 
+	</a>
+
+	<a href="/relatorios/info">
+		<div class="col-md-3 col-sm-6">
+			<div class="card card-dashboard-info card-green">
+				<div class="card-body">
+					<div class="card-icon"><i class="fa fa-file-text-o"></i></div>
+					<p class="result">Resumo do Veículo</p>
+					<small>Resumo de 90 dias</small>
+				</div>
+			</div> 
+		</div> 
+	</a>
+</div>

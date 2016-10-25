@@ -1,11 +1,5 @@
 var ComingSoon = {
 
-	bgImage: function () {
-		$('body').backstretch([
-			Pleasure.settings.paths.images+'/picjumbo/large/3.jpg'
-		]);
-	},
-
 	countDown: function () {
 		$('#countdown').countdown('2015/08/13 00:00:00').on('update.countdown', function(event) {
 			var $this = $(this).html(event.strftime(''
@@ -20,7 +14,6 @@ var ComingSoon = {
 	},
 
 	init: function () {
-		this.bgImage();
 		this.countDown();
 	}
 }

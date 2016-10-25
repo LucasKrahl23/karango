@@ -1,0 +1,75 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="panel">
+      <div class="panel-heading">
+        <div class="panel-title">
+          <h4>Relatório de Desempenho</h4>
+        </div>
+        <form method="post" action="/relatorios/desempenho" class="form-horizontal">
+	        <div class="row example-row">
+	            <div class="col-md-12" align="center">
+
+	            <select class="selectpicker col-md-6" data-live-search="true" name="veiculo" required >
+	              <option value="-1">Selecione um veículo</option>
+	              <% @veiculos.sort_by(&:nome).each do |veiculo| %>
+	                <option value="<%=veiculo.id %>"><%=veiculo.nome %></option>
+	              <% end %>
+	            </select>
+	            
+	            <input type="submit" class="btn btn-blue btn-ripple" value="Gerar">
+	            </div> 
+	        </div>
+	    </form>
+
+      </div><!--.panel-heading-->
+      <div class="panel-body">
+        <div class="unseen">
+          
+          	<% if @veiculo_relatorio.nil? %>
+	          	</br>
+		        	<h2 align="center">Não há dados para mostrar</h2>
+		    	</br>
+		    <% else %>
+		    	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+			    <div id="query1"></div>
+	            <script type="text/javascript">
+	              	google.charts.load('current', {packages: ['corechart', 'bar']});
+	              	google.charts.setOnLoadCallback(drawStacked);
+
+	                function drawStacked() {
+
+	                  var data = new google.visualization.DataTable();
+	                  var valores = [];
+
+	                  data.addColumn('string', 'Data');
+	                  data.addColumn('number', 'KM/Litro');
+	                  
+	                  //Adiciona colunas conforme a quantidade de dias com registro.
+	                  
+			            <% for i in 0..@desempenho_media.length-1 %>
+			            	valores.push('<%= @desempenho_legenda[i] %>');
+						    valores.push(<%= @desempenho_media[i] %>);
+				            data.addRow(valores); 
+				            valores = [];   
+						<% end %>
+	                    
+	                  var options = {
+	                    title: 'Relatório de desempenho - Veículo <%= Veiculo.find(@veiculo_relatorio).nome %>',
+	                    width: 1150,
+	                    height: 500,
+	                    curveType: 'function',
+          				legend: { position: 'bottom' },
+          				pointSize: 7//,
+	                   // sliceVisibilityThreshold: .035
+	                  };
+
+	                  var chart = new google.visualization.LineChart(document.getElementById('query1'));
+	                  chart.draw(data, options);
+	                }
+	            </script>
+	    	<% end %>
+        </div><!--.unseen-->
+      </div><!--.panel-body-->
+    </div><!--.panel-->
+  </div><!--.col-md-12-->
+</div>
