@@ -76,7 +76,7 @@ class RelatoriosController < ApplicationController
       #@dtinicio = params[:dtinicio]
       #@dtfim = params[:dtfim]
 
-      querysql = "select sum(precototal) as total from abastecimentos where veiculo_id = "+ @veiculo_relatorio +" and abastecimento_dt between '2015-01-01' and '2016-10-25'"
+      querysql = "select sum(precototal) as total from abastecimentos where veiculo_id = "+ @veiculo_relatorio
 
       result = consultaSQL querysql
       result.each do |row|
@@ -85,7 +85,7 @@ class RelatoriosController < ApplicationController
         end
       end
 
-      querysql = "select sum(valor) as total from despesas where veiculo_id = "+ @veiculo_relatorio +" and despesa_dt between '2015-01-01' and '2016-10-25'"
+      querysql = "select sum(valor) as total from despesas where veiculo_id = "+ @veiculo_relatorio
 
       result = consultaSQL querysql
       result.each do |row|
@@ -94,7 +94,7 @@ class RelatoriosController < ApplicationController
         end
       end
 
-      querysql = "select sum(valor) as total from impostos where veiculo_id = "+ @veiculo_relatorio +" and vencimento_dt between '2015-01-01' and '2016-10-25'"
+      querysql = "select sum(valor) as total from impostos where veiculo_id = "+ @veiculo_relatorio
 
       result = consultaSQL querysql
       result.each do |row|
@@ -103,7 +103,7 @@ class RelatoriosController < ApplicationController
         end
       end
 
-      querysql = "select sum(valor) as total from manutencoes where veiculo_id = "+ @veiculo_relatorio +" and manutencao_dt between '2015-01-01' and '2016-10-25'"
+      querysql = "select sum(valor) as total from manutencoes where veiculo_id = "+ @veiculo_relatorio
 
       result = consultaSQL querysql
       result.each do |row|
