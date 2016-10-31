@@ -24,7 +24,7 @@ class RelatoriosController < ApplicationController
       @odometro = []
       @abastecimento_dt = []
 
-      querysql = "select odometro, abastecimento_dt from abastecimentos where veiculo_id = "+ @veiculo_relatorio
+      querysql = "select odometro, abastecimento_dt from abastecimentos where veiculo_id = "+ @veiculo_relatorio + " order by abastecimento_dt"
 
       result = consultaSQL querysql
       result.each do |row|
@@ -37,7 +37,7 @@ class RelatoriosController < ApplicationController
       @precolitro = []
       @precolitro_dt = []
 
-      querysql = "select precolitro, abastecimento_dt from abastecimentos where veiculo_id = "+ @veiculo_relatorio
+      querysql = "select precolitro, abastecimento_dt from abastecimentos where veiculo_id = "+ @veiculo_relatorio + " order by abastecimento_dt"
 
       result = consultaSQL querysql
       result.each do |row|
@@ -52,7 +52,7 @@ class RelatoriosController < ApplicationController
       @litros = []
       @litros_dt = []
 
-      querysql = "select (precototal / precolitro) as qtd, abastecimento_dt from abastecimentos where veiculo_id = "+ @veiculo_relatorio
+      querysql = "select (precototal / precolitro) as qtd, abastecimento_dt from abastecimentos where veiculo_id = "+ @veiculo_relatorio + " order by abastecimento_dt"
 
       result = consultaSQL querysql
       result.each do |row|
