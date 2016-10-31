@@ -1,24 +1,5 @@
-# README
+# Karango WebApp
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+O Karango é um sistema para controlar os gastos de seus veículos.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Acesse é gratis: https://karango.herokuapp.com/
