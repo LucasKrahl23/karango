@@ -1,8 +1,10 @@
 class Usuarios::PasswordsController < Devise::PasswordsController
   # GET /resource/password/new
-  # def new
-  #   super
-  # end
+   def new
+      #@user = User.new(user_params)
+      ExampleMailer.sample_email('luckrahl1996@gmail.com').deliver
+     #super
+   end
 
   # POST /resource/password
   # def create
